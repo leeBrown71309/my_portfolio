@@ -154,7 +154,7 @@ msgstr "En savoir plus"
 #~ msgid "Envoyer"
 #~ msgstr "Envoyer"
 
-#: src/pages/contact.tsx:230
+#: src/pages/contact.tsx:203
 msgid "Envoyez-moi un message"
 msgstr "Envoyez-moi un message"
 
@@ -175,7 +175,7 @@ msgstr "Expertise Timeline"
 msgid "Front-end Dev"
 msgstr "Front-end Dev"
 
-#: src/pages/contact.tsx:197
+#: src/pages/contact.tsx:170
 msgid "GET IN TOUCH"
 msgstr "GET IN TOUCH"
 
@@ -183,13 +183,17 @@ msgstr "GET IN TOUCH"
 msgid "Hard Skills"
 msgstr "Hard Skills"
 
-#: src/pages/contact.tsx:281
+#: src/pages/contact.tsx:254
 msgid "Heure Locale"
 msgstr "Heure Locale"
 
 #: src/pages/index.tsx:251
 msgid "Hey, je suis"
 msgstr "Hey, je suis"
+
+#: src/components/NotFound.tsx:39
+msgid "Il semblerait que vous ayez bifurqué vers un univers numérique inexistant."
+msgstr "Il semblerait que vous ayez bifurqué vers un univers numérique inexistant."
 
 #: src/pages/index.tsx:48
 #~ msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
@@ -203,7 +207,7 @@ msgstr "L'art de sculpter le digital."
 #~ msgid "Let's Talk"
 #~ msgstr "Let's Talk"
 
-#: src/pages/contact.tsx:271
+#: src/pages/contact.tsx:244
 msgid "Localisation"
 msgstr "Localisation"
 
@@ -235,9 +239,17 @@ msgstr "Projet suivant"
 #~ msgid "Nom"
 #~ msgstr "Nom"
 
-#: src/pages/contact.tsx:253
+#: src/pages/contact.tsx:226
 msgid "Ouvert aux opportunités de collaboration partout dans le monde."
 msgstr "Ouvert aux opportunités de collaboration partout dans le monde."
+
+#: src/components/NotFound.tsx:36
+msgid "Page Perdue"
+msgstr "Page Perdue"
+
+#: src/components/NotFound.tsx:62
+msgid "Page précédente"
+msgstr "Page précédente"
 
 #: src/pages/projects.index.tsx:142
 msgid "Portfolio Selection"
@@ -247,7 +259,7 @@ msgstr "Portfolio Selection"
 #~ msgid "Prêt à façonner le futur de votre produit ?"
 #~ msgstr "Prêt à façonner le futur de votre produit ?"
 
-#: src/pages/contact.tsx:223
+#: src/pages/contact.tsx:196
 msgid "Prêt pour l'aventure ?"
 msgstr "Prêt pour l'aventure ?"
 
@@ -279,6 +291,10 @@ msgstr "PROJETS"
 #~ msgid "Réponse sous 24h"
 #~ msgstr "Réponse sous 24h"
 
+#: src/components/NotFound.tsx:52
+msgid "Retourner à l'accueil"
+msgstr "Retourner à l'accueil"
+
 #: src/pages/projects.$projectId.tsx:237
 msgid "Scroll for details"
 msgstr "Défiler pour les détails"
@@ -303,7 +319,7 @@ msgstr "Software Design"
 msgid "Téléchargez une version détaillée de mon parcours professionnel."
 msgstr "Téléchargez une version détaillée de mon parcours professionnel."
 
-#: src/pages/contact.tsx:296
+#: src/pages/contact.tsx:269
 msgid "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion."
 msgstr "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion."
 
@@ -311,7 +327,7 @@ msgstr "Travailler de manière asynchrone permet une meilleure concentration et 
 #~ msgid "Travaillons ensemble"
 #~ msgstr "Travaillons ensemble"
 
-#: src/pages/contact.tsx:201
+#: src/pages/contact.tsx:174
 msgid "Travaillons ensemble."
 msgstr "Travaillons ensemble."
 
