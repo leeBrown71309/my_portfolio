@@ -75,7 +75,7 @@ export function CustomCursor() {
 
       {/* Center Core Dot */}
       <motion.div
-        className="absolute w-1.5 h-1.5 bg-indigo-500 rounded-full"
+        className="absolute w-1.5 h-1.5 bg-primary-500 rounded-full"
         style={{
           x: dotX,
           y: dotY,
@@ -89,7 +89,7 @@ export function CustomCursor() {
 
       {/* Trailing Glow / Light Effect */}
       <motion.div
-        className="absolute w-24 h-24 bg-indigo-500/50 blur-3xl rounded-full"
+        className="absolute w-24 h-24 bg-primary-500/50 blur-3xl rounded-full"
         style={{
           x: cursorX,
           y: cursorY,

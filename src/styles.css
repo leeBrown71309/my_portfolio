@@ -1,8 +1,54 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Gimbal Extended";
+  src:
+    url("/fonts/Gimbal Extended Regular.otf") format("opentype"),
+    url("/fonts/Gimbal Extended Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Eight One";
+  src: url("/fonts/Eight One.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
   --color-midnight: #0a0f1d;
   --color-midnight-light: #161e31;
+
+  /* Semantic Colors */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-primary-950: #1e1b4b;
+
+  --color-primary: var(--color-primary-600);
+  --color-secondary: #0ea5e9; /* Sky 500 */
+  --color-accent: #8b5cf6; /* Violet 500 */
+
+  /* Font Families */
+  --font-gimbal: "Gimbal Extended", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-eight: "Eight One", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
 }
 
 @layer base {
@@ -27,18 +73,18 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 dark:bg-indigo-950/40 backdrop-blur-lg border border-white/20 dark:border-indigo-500/20 shadow-xl;
+    @apply bg-white/70 dark:bg-primary-950/40 backdrop-blur-lg border border-white/20 dark:border-primary-500/20 shadow-xl;
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-indigo-600 dark:bg-indigo-600 text-white font-semibold rounded-xl 
-           shadow-lg shadow-indigo-200 dark:shadow-indigo-900/40 hover:bg-indigo-700 dark:hover:bg-indigo-500 
+    @apply px-6 py-3 bg-primary dark:bg-primary text-white font-semibold rounded-xl 
+           shadow-lg shadow-primary-200 dark:shadow-primary-900/40 hover:bg-primary-700 dark:hover:bg-primary-500 
            hover:-translate-y-0.5 transition-all duration-300 active:scale-95;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300 font-semibold rounded-xl 
-           border border-slate-200 dark:border-indigo-500/30 shadow-sm hover:bg-slate-50 dark:hover:bg-indigo-900/40 
+    @apply px-6 py-3 bg-white dark:bg-primary-900/20 text-primary dark:text-primary-300 font-semibold rounded-xl 
+           border border-slate-200 dark:border-primary-500/30 shadow-sm hover:bg-slate-50 dark:hover:bg-primary-900/40 
            hover:-translate-y-0.5 transition-all duration-300 active:scale-95;
   }
 }
@@ -62,5 +108,9 @@
 
   .text-glow {
     text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
   }
 }

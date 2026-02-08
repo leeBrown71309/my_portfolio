@@ -13,50 +13,70 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/Navbar.tsx:25
+#: src/pages/index.tsx:78
+msgid "<0>15+</0> projets réussis avec succès"
+msgstr ""
+
+#: src/components/Navbar.tsx:35
 msgid "À propos"
 msgstr "About"
 
-#: src/components/Navbar.tsx:22
+#: src/components/Navbar.tsx:32
 msgid "Accueil"
 msgstr "Home"
 
-#: src/pages/index.tsx:69
+#: src/pages/index.tsx:40
 msgid "Bienvenue dans mon"
 msgstr "Welcome to my"
 
-#: src/components/Navbar.tsx:26
-msgid "Contact"
-msgstr "Contact"
+#: src/pages/index.tsx:189
+msgid "Clean Code"
+msgstr ""
 
-#: src/pages/index.tsx:63
+#: src/components/Navbar.tsx:26
+#~ msgid "Contact"
+#~ msgstr "Contact"
+
+#: src/components/Navbar.tsx:213
+msgid "CONTACT ME"
+msgstr ""
+
+#: src/pages/index.tsx:34
 msgid "Disponible pour de nouveaux projets"
 msgstr "Available for new projects"
 
-#: src/components/Navbar.tsx:23
+#: src/components/Navbar.tsx:33
 msgid "Expertise"
 msgstr "Expertise"
 
-#: src/pages/index.tsx:77
+#: src/pages/index.tsx:48
 msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
 msgstr "I design exceptional digital experiences combining technical performance and refined aesthetics. Specialized in React, TanStack and premium animations."
 
-#: src/pages/index.tsx:92
+#: src/components/Navbar.tsx:121
+msgid "Let's Talk"
+msgstr ""
+
+#: src/pages/index.tsx:63
 msgid "Me contacter"
 msgstr "Contact Me"
 
-#: src/components/Navbar.tsx:24
+#: src/components/Navbar.tsx:34
 msgid "Projets"
 msgstr "Projects"
 
-#: src/pages/index.tsx:110
-msgid "projets réussis avec succès"
-msgstr "successfully completed projects"
+#: src/pages/index.tsx:81
+#~ msgid "projets réussis avec succès"
+#~ msgstr "successfully completed projects"
 
-#: src/pages/index.tsx:72
+#: src/pages/index.tsx:192
+msgid "TypeScript"
+msgstr ""
+
+#: src/pages/index.tsx:43
 msgid "Univers Créatif"
 msgstr "Creative Universe"
 
-#: src/pages/index.tsx:87
+#: src/pages/index.tsx:58
 msgid "Voir mes projets"
 msgstr "View my projects"

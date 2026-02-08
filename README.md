@@ -1,5 +1,7 @@
 # 🚀 Portfolio Créatif | Creative Developer
 
+![Showcase](./public/image.png)
+
 Bienvenue sur le dépôt de mon portfolio professionnel, une vitrine moderne et performante conçue pour offrir une expérience utilisateur exceptionnelle.
 
 ## 🛠️ Stack Technique

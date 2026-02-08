@@ -13,39 +13,55 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/Navbar.tsx:25
+#: src/pages/index.tsx:78
+msgid "<0>15+</0> projets réussis avec succès"
+msgstr "<0>15+</0> projets réussis avec succès"
+
+#: src/components/Navbar.tsx:35
 msgid "À propos"
 msgstr "À propos"
 
-#: src/components/Navbar.tsx:22
+#: src/components/Navbar.tsx:32
 msgid "Accueil"
 msgstr "Accueil"
 
-#: src/pages/index.tsx:69
+#: src/pages/index.tsx:40
 msgid "Bienvenue dans mon"
 msgstr "Bienvenue dans mon"
 
+#: src/pages/index.tsx:189
+msgid "Clean Code"
+msgstr "Clean Code"
+
 #: src/components/Navbar.tsx:26
-msgid "Contact"
-msgstr "Contact"
+#~ msgid "Contact"
+#~ msgstr "Contact"
 
 #: src/routes/index.tsx:52
 #~ msgid "Contact Me"
 #~ msgstr "Contact Me"
 
-#: src/pages/index.tsx:63
+#: src/components/Navbar.tsx:213
+msgid "CONTACT ME"
+msgstr "CONTACT ME"
+
+#: src/pages/index.tsx:34
 msgid "Disponible pour de nouveaux projets"
 msgstr "Disponible pour de nouveaux projets"
 
-#: src/components/Navbar.tsx:23
+#: src/components/Navbar.tsx:33
 msgid "Expertise"
 msgstr "Expertise"
 
-#: src/pages/index.tsx:77
+#: src/pages/index.tsx:48
 msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
 msgstr "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
 
-#: src/pages/index.tsx:92
+#: src/components/Navbar.tsx:121
+msgid "Let's Talk"
+msgstr "Let's Talk"
+
+#: src/pages/index.tsx:63
 msgid "Me contacter"
 msgstr "Me contacter"
 
@@ -53,15 +69,19 @@ msgstr "Me contacter"
 #~ msgid "My Portfolio"
 #~ msgstr "My Portfolio"
 
-#: src/components/Navbar.tsx:24
+#: src/components/Navbar.tsx:34
 msgid "Projets"
 msgstr "Projets"
 
-#: src/pages/index.tsx:110
-msgid "projets réussis avec succès"
-msgstr "projets réussis avec succès"
+#: src/pages/index.tsx:81
+#~ msgid "projets réussis avec succès"
+#~ msgstr "projets réussis avec succès"
 
-#: src/pages/index.tsx:72
+#: src/pages/index.tsx:192
+msgid "TypeScript"
+msgstr "TypeScript"
+
+#: src/pages/index.tsx:43
 msgid "Univers Créatif"
 msgstr "Univers Créatif"
 
@@ -69,7 +89,7 @@ msgstr "Univers Créatif"
 #~ msgid "View Projects"
 #~ msgstr "View Projects"
 
-#: src/pages/index.tsx:87
+#: src/pages/index.tsx:58
 msgid "Voir mes projets"
 msgstr "Voir mes projets"
 

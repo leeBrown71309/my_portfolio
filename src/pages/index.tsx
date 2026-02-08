@@ -1,202 +1,280 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Trans } from "@lingui/macro";
-import { motion } from "framer-motion";
-import { Code, Terminal, Sparkles, ArrowRight } from "lucide-react";
+import {
+  motion,
+  useSpring,
+  useMotionValue,
+  Variants,
+  AnimatePresence,
+} from "framer-motion";
+import { ArrowUpRight, Plus } from "lucide-react";
+import React from "react";
+import { useLoading } from "../context/LoadingContext";
 
 export const Route = createFileRoute("/")({
   component: App,
 });
 
-function App() {
-  return (
-    <div className="min-h-screen relative overflow-hidden bg-slate-50 dark:bg-[#070b14] selection:bg-indigo-100 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-100 font-sans transition-colors duration-700">
-      {/* Background Decorative Elements - Midnight & Indigo focus */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none bg-white dark:bg-[#070b14]">
-        <div className="absolute top-[-15%] left-[-5%] w-[50%] h-[50%] bg-indigo-500/10 dark:bg-indigo-600/15 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[45%] h-[45%] bg-blue-600/10 dark:bg-indigo-900/20 blur-[130px] rounded-full" />
-        <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-purple-500/5 dark:bg-purple-900/10 blur-[100px] rounded-full" />
+const MagneticChar = ({ char }: { char: string }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-        {/* Subtle grid pattern for extra premium feel */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
+  const springConfig = { damping: 15, stiffness: 150 };
+  const tx = useSpring(x, springConfig);
+  const ty = useSpring(y, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const distanceX = e.clientX - centerX;
+    const distanceY = e.clientY - centerY;
+
+    // Magnetic pull range
+    if (Math.abs(distanceX) < 40 && Math.abs(distanceY) < 40) {
+      x.set(distanceX * 0.35);
+      y.set(distanceY * 0.35);
+    } else {
+      x.set(0);
+      y.set(0);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.span
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ x: tx, y: ty }}
+      className="inline-block cursor-default select-none transition-colors duration-300 hover:text-primary-500"
+    >
+      {char === " " ? "\u00A0" : char}
+    </motion.span>
+  );
+};
+
+const MagneticLink = ({
+  children,
+  href,
+  icon: Icon = ArrowUpRight,
+  primary = false,
+}: {
+  children: React.ReactNode;
+  href: string;
+  icon?: any;
+  primary?: boolean;
+}) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springConfig = { damping: 20, stiffness: 150 };
+  const tx = useSpring(x, springConfig);
+  const ty = useSpring(y, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    x.set((e.clientX - centerX) * 0.2);
+    y.set((e.clientY - centerY) * 0.2);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.a
+      href={href}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ x: tx, y: ty }}
+      className={`inline-flex items-center gap-4 transition-all duration-500 group py-2 px-4 rounded-full ${primary ? "text-white" : "text-white/60 hover:text-white"}`}
+    >
+      <span className="text-sm md:text-base font-eight uppercase tracking-tighter transition-transform duration-500 group-hover:scale-105">
+        {children}
+      </span>
+      <div
+        className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 overflow-hidden relative ${primary ? "group-hover:bg-primary-500 group-hover:border-primary-500" : "group-hover:border-white"}`}
+      >
+        {/* Fix: Better alignment for the double arrow animation */}
+        <div className="relative w-5 h-5 overflow-hidden">
+          <Icon className="w-5 h-5 absolute inset-0 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+          <Icon className="w-5 h-5 absolute -left-6 top-6 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+        </div>
+      </div>
+    </motion.a>
+  );
+};
+
+function App() {
+  const { isLoading } = useLoading();
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 60, filter: "blur(10px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as any },
+    },
+  };
+
+  return (
+    <div className="h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#070b14] relative selection:bg-primary-500 selection:text-white">
+      {/* Editorial Grid Overlay */}
+      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-12 pointer-events-none opacity-[0.03]">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="border-r border-white h-full last:border-r-0"
+          />
+        ))}
       </div>
 
-      <main className="max-w-7xl mx-auto px-6 pt-32 pb-20 relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+      {/* Atmospheric Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            opacity: [0.1, 0.15, 0.1],
+          }}
+          transition={{ duration: 25, repeat: Infinity }}
+          className="absolute -top-[20%] -left-[10%] w-[80%] h-[80%] bg-primary-900/40 blur-[150px] rounded-full"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            x: [0, -50, 0],
+            opacity: [0.08, 0.12, 0.08],
+          }}
+          transition={{ duration: 20, repeat: Infinity }}
+          className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] bg-blue-900/30 blur-[150px] rounded-full"
+        />
+      </div>
+
+      <AnimatePresence mode="wait">
+        {!isLoading && (
+          <motion.main
+            key="home-content"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="relative z-10 w-full max-w-[1400px] px-6 md:px-12 flex flex-col items-center text-center py-20"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50/80 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 font-semibold text-sm mb-8 border border-indigo-100 dark:border-indigo-500/20 shadow-sm backdrop-blur-sm">
-              <Sparkles className="w-4 h-4" />
-              <span>
-                <Trans>Disponible pour de nouveaux projets</Trans>
+            {/* Top Tagline */}
+            <motion.div variants={itemVariants} className="mb-8 md:mb-12">
+              <span className="text-primary-500 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] md:tracking-[0.5em] block">
+                <Trans>Based in Dakar | Front-end Developer</Trans>
               </span>
-            </div>
-
-            <h1 className="text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.1] mb-8 font-outfit">
-              <span className="block opacity-90">
-                <Trans>Bienvenue dans mon</Trans>
-              </span>
-              <span className="bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-glow">
-                <Trans>Univers Créatif</Trans>
-              </span>
-            </h1>
-
-            <p className="text-xl text-slate-600 dark:text-indigo-100/70 mb-10 leading-relaxed max-w-xl">
-              <Trans>
-                Je conçois des expériences numériques exceptionnelles alliant
-                performance technique et esthétique raffinée. Spécialisé en
-                React, TanStack et animations premium.
-              </Trans>
-            </p>
-
-            <div className="flex flex-wrap gap-5">
-              <button className="btn-primary group shadow-indigo-500/20 shadow-xl">
-                <span className="flex items-center gap-2">
-                  <Trans>Voir mes projets</Trans>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-              <button className="btn-secondary dark:text-indigo-200">
-                <Trans>Me contacter</Trans>
-              </button>
-            </div>
-
-            {/* Stats or Trusted by */}
-            <div className="mt-16 pt-8 border-t border-slate-200 dark:border-indigo-500/20 flex gap-8 items-center text-slate-400 dark:text-indigo-400/50">
-              <div className="flex -space-x-3 overflow-hidden">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-[#070b14] bg-indigo-50 dark:bg-indigo-950 border border-indigo-100 dark:border-indigo-500/20"
-                  />
-                ))}
-              </div>
-              <p className="text-sm font-medium">
-                <span className="text-slate-900 dark:text-indigo-100 font-bold">
-                  15+
-                </span>{" "}
-                <Trans>projets réussis avec succès</Trans>
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Visual Element */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="glass-card rounded-3xl p-8 relative overflow-hidden group shadow-2xl shadow-indigo-500/10">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 to-blue-50/30 dark:from-indigo-600/10 dark:to-blue-900/10 -z-10" />
-
-              {/* Fake Terminal Header */}
-              <div className="flex items-center gap-2 mb-6 border-b border-slate-200 dark:border-indigo-500/20 pb-4">
-                <div className="w-3 h-3 rounded-full bg-red-400/80 shadow-sm" />
-                <div className="w-3 h-3 rounded-full bg-amber-400/80 shadow-sm" />
-                <div className="w-3 h-3 rounded-full bg-green-400/80 shadow-sm" />
-                <div className="ml-4 text-xs font-mono text-slate-400 dark:text-indigo-300 uppercase tracking-widest opacity-60">
-                  portfolio.tsx
-                </div>
-              </div>
-
-              <div className="space-y-4 font-mono text-sm leading-relaxed">
-                <div className="flex gap-4">
-                  <span className="text-indigo-500 dark:text-indigo-400">
-                    1
-                  </span>
-                  <span className="text-purple-600 dark:text-purple-400">
-                    const
-                  </span>
-                  <span className="text-blue-600 dark:text-blue-400">
-                    developer
-                  </span>
-                  <span className="text-slate-400 dark:text-slate-500">=</span>
-                  <span className="text-amber-600 dark:text-amber-300">
-                    "Creative & Tech"
-                  </span>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-indigo-500 dark:text-indigo-400">
-                    2
-                  </span>
-                  <span className="text-purple-600 dark:text-purple-400">
-                    const
-                  </span>
-                  <span className="text-blue-600 dark:text-blue-400">
-                    skills
-                  </span>
-                  <span className="text-slate-400 dark:text-slate-500">=</span>
-                  <span className="text-slate-800 dark:text-indigo-50">[</span>
-                </div>
-                <div className="flex gap-4 pl-8">
-                  <span className="text-indigo-500 dark:text-indigo-400">
-                    3
-                  </span>
-                  <span className="text-amber-600 dark:text-amber-300">
-                    "React"
-                  </span>
-                  <span className="text-slate-400 dark:text-slate-500">,</span>
-                  <span className="text-amber-600 dark:text-amber-300">
-                    "TanStack"
-                  </span>
-                  <span className="text-slate-400 dark:text-slate-500">,</span>
-                </div>
-                <div className="flex gap-4 pl-8">
-                  <span className="text-indigo-500 dark:text-indigo-400">
-                    4
-                  </span>
-                  <span className="text-amber-600 dark:text-amber-300">
-                    "Framer Motion"
-                  </span>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-indigo-500 dark:text-indigo-400">
-                    5
-                  </span>
-                  <span className="text-slate-800 dark:text-indigo-50">]</span>
-                </div>
-              </div>
-
-              <div className="mt-8 flex items-center justify-center py-12">
-                <div className="p-7 bg-white dark:bg-indigo-950/50 rounded-2xl shadow-2xl relative group-hover:scale-105 transition-transform duration-500 border border-slate-100 dark:border-indigo-500/20 backdrop-blur-md">
-                  <Terminal className="w-20 h-20 text-indigo-600 dark:text-indigo-400" />
-                  <motion.div
-                    animate={{ opacity: [0, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="absolute bottom-4 right-4 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-indigo-950 shadow-lg glow-green"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Badges */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 p-4 glass-card rounded-2xl shadow-xl flex items-center gap-3 border-indigo-500/30"
-            >
-              <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20">
-                <Code className="w-5 h-5" />
-              </div>
-              <div className="hidden xs:block">
-                <div className="text-xs text-slate-400 dark:text-indigo-300 font-medium">
-                  Clean Code
-                </div>
-                <div className="text-sm font-bold text-slate-900 dark:text-indigo-50">
-                  TypeScript
-                </div>
-              </div>
             </motion.div>
-          </motion.div>
-        </div>
-      </main>
 
-      {/* Background decoration for Dark Mode */}
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(79,70,229,0.08),transparent_70%)] dark:block hidden pointer-events-none" />
+            {/* Hero Title Section */}
+            <motion.div
+              variants={itemVariants}
+              className="relative mb-6  w-full"
+            >
+              <h1 className="flex flex-col items-center w-full">
+                <span className="text-white/30 font-gimbal text-xs md:text-xl uppercase tracking-[0.3em] mb-4 block">
+                  <Trans>Hey, je suis</Trans>
+                </span>
+                <span className="text-white text-7xl  md:text-8xl lg:text-[10rem] font-eight tracking-tighter leading-[0.9] flex flex-wrap justify-center gap-x-[0.2em]">
+                  <span className="flex">
+                    {"LEE".split("").map((c, i) => (
+                      <MagneticChar key={i} char={c} />
+                    ))}
+                  </span>
+                  <span className="flex">
+                    {"MAKOSSO".split("").map((c, i) => (
+                      <MagneticChar key={i} char={c} />
+                    ))}
+                  </span>
+                </span>
+              </h1>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="mb-10 md:mb-14">
+              <p className="text-white/40 font-gimbal text-[10px] md:text-xl uppercase tracking-[0.1em] flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
+                <Trans>Mais vous pouvez m’appeler</Trans>
+                <span className="text-primary-500 font-eight text-2xl md:text-6xl italic inline-block hover:scale-110 transition-transform cursor-pointer">
+                  LEE
+                </span>
+              </p>
+            </motion.div>
+
+            {/* Description & Action Layer */}
+            <motion.div
+              variants={itemVariants}
+              className="max-w-2xl md:max-w-3xl mb-12 md:mb-16 px-4"
+            >
+              <p className="text-white/40 font-dm-sans text-base md:text-2xl leading-relaxed">
+                <span className="text-white/80">Designer graphique</span>,
+                {" UX/UI designer "}
+                <span className="text-white/80">& développeur front-end</span>.
+                <Trans>
+                  {" "}
+                  Je sculpte des interfaces numériques où l'esthétique rencontre
+                  la performance.
+                </Trans>
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center gap-4 md:gap-12"
+            >
+              <MagneticLink href="/#projets" primary>
+                <Trans>Voir mes projets</Trans>
+              </MagneticLink>
+              <MagneticLink href="/#a-propos" icon={Plus}>
+                <Trans>En savoir plus</Trans>
+              </MagneticLink>
+            </motion.div>
+
+            {/* Subtle Decorative Elements */}
+            <div className="hidden lg:flex absolute left-8 bottom-8 flex-col gap-4 text-[9px] font-mono tracking-widest text-white/10 uppercase vertical-text">
+              <span className="hover:text-primary-500 transition-colors cursor-pointer">
+                2026 Edition
+              </span>
+              <span className="w-px h-12 bg-white/5 mx-auto" />
+            </div>
+
+            <div className="hidden lg:flex absolute right-8 bottom-8 flex-col items-end gap-1 text-[9px] font-mono tracking-widest text-white/10 uppercase font-bold">
+              <span className="text-white/20 lowercase font-normal italic">
+                Status
+              </span>
+              <span className="text-primary-500/80 animate-pulse flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-current" />
+                <Trans>Available for projects</Trans>
+              </span>
+            </div>
+          </motion.main>
+        )}
+      </AnimatePresence>
+
+      {/* Extreme background noise for editorial feel */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none mix-blend-overlay" />
     </div>
   );
 }

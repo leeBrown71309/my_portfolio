@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { Navbar } from "../components/Navbar";
 import { CustomCursor } from "../components/CustomCursor";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { Loader } from "../components/Loader";
+import { LoadingProvider } from "../context/LoadingContext";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -26,13 +28,24 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "Mon Portfolio | Creative Developer",
+        title: "LEEEIGHT. | Creative Developer Portfolio",
       },
       {
         name: "description",
         content:
-          "Portfolio professionnel d'un développeur créatif spécialisé en React et design moderne.",
+          "Portfolio professionnel d'un développeur créatif spécialisé en React, TanStack et animations haut de gamme.",
       },
+      // Social Meta
+      {
+        property: "og:title",
+        content: "LEEEIGHT. | Creative Developer Portfolio",
+      },
+      {
+        property: "og:description",
+        content:
+          "Experience next-gen web development with premium aesthetics and performance.",
+      },
+      { property: "og:type", content: "website" },
     ],
     links: [
       {
@@ -69,25 +82,28 @@ function RootComponent() {
       easing: "ease-out-cubic",
     });
 
-    // Activation de la langue par défaut
+    // Activation de la langue par défaut si nécessaire
     if (!i18n.locale) {
       i18n.activate("fr");
     }
   }, []);
 
   return (
-    <html lang="fr">
+    <html lang={i18n.locale || "fr"}>
       <head>
         <HeadContent />
       </head>
       <body>
         <I18nProvider i18n={i18n}>
-          <CustomCursor />
-          <LanguageSwitcher />
-          <Navbar />
-          <main className=" min-h-screen relative overflow-hidden bg-slate-50 dark:bg-[#070b14] selection:bg-indigo-100 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-100 font-sans transition-colors duration-700">
-            <Outlet />
-          </main>
+          <LoadingProvider>
+            <Loader />
+            <CustomCursor />
+            <LanguageSwitcher />
+            <Navbar />
+            <main className="min-h-screen relative overflow-hidden bg-slate-50 dark:bg-[#070b14] selection:bg-primary-500/30 selection:text-primary-100 font-sans transition-colors duration-700">
+              <Outlet />
+            </main>
+          </LoadingProvider>
         </I18nProvider>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />

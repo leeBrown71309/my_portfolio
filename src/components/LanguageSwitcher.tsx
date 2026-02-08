@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
           stiffness: 400,
           mass: 0.8,
         }}
-        className="glass-card border-indigo-500/10 shadow-2xl backdrop-blur-3xl overflow-hidden flex flex-col items-center rounded-full w-9"
+        className="glass-card border-primary-500/10 shadow-2xl backdrop-blur-3xl overflow-hidden flex flex-col items-center rounded-full w-9"
       >
         {/* Toggle Button - Top Fixed Part */}
         <div className="h-9 w-9 flex items-center justify-center shrink-0">
@@ -40,8 +40,8 @@ export function LanguageSwitcher() {
             onClick={() => setIsExpanded(!isExpanded)}
             className={`p-1.5 rounded-full transition-colors duration-300 ${
               isExpanded
-                ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/20"
-                : "text-indigo-400 hover:bg-indigo-500/10"
+                ? "bg-primary-500 text-white shadow-lg shadow-primary-500/20"
+                : "text-primary-400 hover:bg-primary-500/10"
             }`}
           >
             <AnimatePresence mode="wait">
@@ -89,8 +89,8 @@ export function LanguageSwitcher() {
               onClick={() => toggleLanguage(lang.code)}
               className={`w-7 h-7 flex items-center justify-center rounded-full text-[9px] font-black transition-all duration-300 ${
                 lingui.locale === lang.code
-                  ? "bg-white text-indigo-500 shadow-md shadow-indigo-500/20"
-                  : "text-slate-400 hover:text-indigo-400 hover:bg-indigo-500/5 group"
+                  ? "bg-white text-primary-500 shadow-md shadow-primary-500/20"
+                  : "text-slate-400 hover:text-primary-400 hover:bg-primary-500/5 group"
               }`}
             >
               {lang.label}
@@ -105,7 +105,7 @@ export function LanguageSwitcher() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="w-px h-6 bg-linear-to-b from-transparent via-indigo-500/20 to-transparent mx-auto mt-3"
+          className="w-px h-6 bg-linear-to-b from-transparent via-primary-500/20 to-transparent mx-auto mt-3"
         />
       )}
     </div>
