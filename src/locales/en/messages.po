@@ -13,70 +13,114 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/index.tsx:78
-msgid "<0>15+</0> projets réussis avec succès"
+#: src/components/Navbar.tsx:306
+msgid " Get in touch"
 msgstr ""
 
-#: src/components/Navbar.tsx:35
+#: src/pages/index.tsx:286
+msgid " Je sculpte des interfaces numériques où l'esthétique rencontre la performance."
+msgstr ""
+
+#: src/components/Navbar.tsx:294
+msgid " Local Time"
+msgstr ""
+
+#: src/pages/index.tsx:78
+#~ msgid "<0>15+</0> projets réussis avec succès"
+#~ msgstr ""
+
+#: src/components/Navbar.tsx:178
 msgid "À propos"
 msgstr "About"
 
-#: src/components/Navbar.tsx:32
+#: src/components/Navbar.tsx:176
 msgid "Accueil"
 msgstr "Home"
 
+#: src/pages/index.tsx:320
+msgid "Available for projects"
+msgstr ""
+
+#: src/pages/index.tsx:240
+msgid "Based in Dakar | Front-end Developer"
+msgstr ""
+
 #: src/pages/index.tsx:40
-msgid "Bienvenue dans mon"
-msgstr "Welcome to my"
+#~ msgid "Bienvenue dans mon"
+#~ msgstr "Welcome to my"
 
 #: src/pages/index.tsx:189
-msgid "Clean Code"
-msgstr ""
+#~ msgid "Clean Code"
+#~ msgstr ""
 
-#: src/components/Navbar.tsx:26
-#~ msgid "Contact"
-#~ msgstr "Contact"
+#: src/components/Navbar.tsx:179
+msgid "Contact"
+msgstr "Contact"
 
 #: src/components/Navbar.tsx:213
-msgid "CONTACT ME"
-msgstr ""
+#~ msgid "CONTACT ME"
+#~ msgstr ""
 
 #: src/pages/index.tsx:34
-msgid "Disponible pour de nouveaux projets"
-msgstr "Available for new projects"
+#~ msgid "Disponible pour de nouveaux projets"
+#~ msgstr "Available for new projects"
+
+#: src/pages/index.tsx:302
+msgid "En savoir plus"
+msgstr ""
 
 #: src/components/Navbar.tsx:33
-msgid "Expertise"
-msgstr "Expertise"
+#~ msgid "Expertise"
+#~ msgstr "Expertise"
+
+#: src/pages/index.tsx:251
+msgid "Hey, je suis"
+msgstr ""
 
 #: src/pages/index.tsx:48
-msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
-msgstr "I design exceptional digital experiences combining technical performance and refined aesthetics. Specialized in React, TanStack and premium animations."
+#~ msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
+#~ msgstr "I design exceptional digital experiences combining technical performance and refined aesthetics. Specialized in React, TanStack and premium animations."
 
 #: src/components/Navbar.tsx:121
-msgid "Let's Talk"
+#~ msgid "Let's Talk"
+#~ msgstr ""
+
+#: src/pages/index.tsx:270
+msgid "Mais vous pouvez m’appeler"
 msgstr ""
 
 #: src/pages/index.tsx:63
-msgid "Me contacter"
-msgstr "Contact Me"
+#~ msgid "Me contacter"
+#~ msgstr "Contact Me"
 
-#: src/components/Navbar.tsx:34
+#: src/pages/projects.tsx:130
+msgid "Portfolio Selection"
+msgstr "Portfolio Selection"
+
+#: src/components/Navbar.tsx:177
 msgid "Projets"
 msgstr "Projects"
+
+#: src/pages/projects.tsx:133
+msgid "PROJETS"
+msgstr "PROJECTS"
 
 #: src/pages/index.tsx:81
 #~ msgid "projets réussis avec succès"
 #~ msgstr "successfully completed projects"
 
 #: src/pages/index.tsx:192
-msgid "TypeScript"
-msgstr ""
+#~ msgid "TypeScript"
+#~ msgstr ""
+
+#: src/pages/projects.tsx:146
+msgid "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
+msgstr "A selection of works where aesthetics meet creative engineering."
 
 #: src/pages/index.tsx:43
-msgid "Univers Créatif"
-msgstr "Creative Universe"
+#~ msgid "Univers Créatif"
+#~ msgstr "Creative Universe"
 
-#: src/pages/index.tsx:58
+#: src/pages/index.tsx:299
 msgid "Voir mes projets"
 msgstr "View my projects"

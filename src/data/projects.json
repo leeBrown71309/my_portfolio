@@ -1,0 +1,78 @@
+[
+    {
+        "id": "minimal-editorial",
+        "banner": "/images/projects/minimal-editorial/5.png",
+        "name": "Minimal Editorial",
+        "mainCategory": "Web Design",
+        "categories": [
+            "UX/UI Design",
+            "Frontend Development"
+        ],
+        "description": "Une plateforme de contenu minimaliste axée sur la typographie et l'expérience de lecture.",
+        "url": "https://example.com",
+        "client": "Studio Archi",
+        "year": "2024",
+        "role": {
+            "role": "Lead Creative Developer",
+            "responsibility": "Design du système de design et implémentation React/Framer Motion."
+        },
+        "sections": [
+            {
+                "title": "Le Concept",
+                "description": "L'idée était de créer une interface qui disparaît au profit du contenu.",
+                "images": [
+                    "/images/projects/minimal-editorial/1.png",
+                    "/images/projects/minimal-editorial/2.png",
+                    "/images/projects/minimal-editorial/3.png",
+                    "/images/projects/minimal-editorial/4.png"
+                ]
+            },
+            {
+                "title": "The quiet revolution minimalist",
+                "description": "L'idée était de créer une interface qui disparaît au profit du contenu.",
+                "images": [
+                    "/images/projects/minimal-editorial/6.png",
+                    "/images/projects/minimal-editorial/banner.png"
+                ]
+            }
+        ],
+        "technologies": [
+            "React",
+            "TypeScript",
+            "Framer Motion",
+            "Tailwind CSS"
+        ]
+    },
+    {
+        "id": "digital-archive",
+        "banner": "/images/projects/digital-archive/banner.jpg",
+        "name": "Digital Archive",
+        "mainCategory": "Interactive",
+        "categories": [
+            "Interaction Design",
+            "Creative Coding"
+        ],
+        "description": "Une archive interactive permettant d'explorer des ressources historiques en 3D.",
+        "url": "https://archive.example.com",
+        "client": "Musée National",
+        "year": "2023",
+        "role": {
+            "role": "Creative Developer",
+            "responsibility": "Développement des visualisations interactives."
+        },
+        "sections": [
+            {
+                "title": "Exploration",
+                "description": "Navigation fluide à travers des milliers de documents numérisés.",
+                "images": [
+                    "/images/projects/digital-archive/view-1.jpg"
+                ]
+            }
+        ],
+        "technologies": [
+            "Three.js",
+            "React Three Fiber",
+            "GSAP"
+        ]
+    }
+]

@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import { t, Trans } from "@lingui/macro";
@@ -87,13 +87,11 @@ const MenuItem = ({
   index,
   onClose,
   activeItem,
-  setActiveItem,
 }: {
   item: { label: string; href: string };
   index: number;
   onClose: () => void;
   activeItem: string;
-  setActiveItem: (label: string) => void;
 }) => {
   const isSelected = activeItem === item.label;
 
@@ -114,7 +112,6 @@ const MenuItem = ({
         onClick={() => {
           onClose();
         }}
-        onMouseEnter={() => setActiveItem(item.label)}
         className="group relative flex items-center justify-center py-4 px-8"
       >
         <span
@@ -151,10 +148,10 @@ const MenuItem = ({
 };
 
 export function Navbar() {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState("");
 
   useEffect(() => {
     if (isOpen) {
@@ -177,7 +174,7 @@ export function Navbar() {
 
   const navItems = [
     { label: t`Accueil`, href: "/" },
-    { label: t`Projets`, href: "/#projets" },
+    { label: t`Projets`, href: "/projects" },
     { label: t`À propos`, href: "/#a-propos" },
     { label: t`Contact`, href: "/#contact" },
   ];
@@ -270,16 +267,18 @@ export function Navbar() {
             </div>
 
             <div className="flex flex-col items-center gap-4 md:gap-8 relative z-10 w-full px-4">
-              {navItems.map((item, i) => (
-                <MenuItem
-                  key={item.label}
-                  item={item}
-                  index={i}
-                  onClose={() => setIsOpen(false)}
-                  activeItem={activeItem}
-                  setActiveItem={setActiveItem}
-                />
-              ))}
+              {navItems.map((item, i) => {
+                const isSelected = location.pathname === item.href;
+                return (
+                  <MenuItem
+                    key={item.label}
+                    item={item}
+                    index={i}
+                    onClose={() => setIsOpen(false)}
+                    activeItem={isSelected ? item.label : ""}
+                  />
+                );
+              })}
             </div>
 
             {/* Bottom Footer Info */}
