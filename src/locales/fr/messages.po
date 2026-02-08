@@ -41,6 +41,10 @@ msgstr "Accueil"
 msgid "Available for projects"
 msgstr "Available for projects"
 
+#: src/pages/projects.$projectId.tsx:97
+msgid "Back to selection"
+msgstr "Retour à la sélection"
+
 #: src/pages/index.tsx:240
 msgid "Based in Dakar | Front-end Developer"
 msgstr "Based in Dakar | Front-end Developer"
@@ -101,15 +105,23 @@ msgstr "Mais vous pouvez m’appeler"
 #~ msgid "My Portfolio"
 #~ msgstr "My Portfolio"
 
-#: src/pages/projects.tsx:130
+#: src/pages/projects.$projectId.tsx:286
+msgid "Next Project"
+msgstr "Projet suivant"
+
+#: src/pages/projects.tsx:138
 msgid "Portfolio Selection"
 msgstr "Portfolio Selection"
+
+#: src/pages/projects.$projectId.tsx:37
+msgid "Project not found"
+msgstr "Projet non trouvé"
 
 #: src/components/Navbar.tsx:177
 msgid "Projets"
 msgstr "Projets"
 
-#: src/pages/projects.tsx:133
+#: src/pages/projects.tsx:141
 msgid "PROJETS"
 msgstr "PROJETS"
 
@@ -117,11 +129,15 @@ msgstr "PROJETS"
 #~ msgid "projets réussis avec succès"
 #~ msgstr "projets réussis avec succès"
 
+#: src/pages/projects.$projectId.tsx:166
+msgid "Scroll for details"
+msgstr "Défiler pour les détails"
+
 #: src/pages/index.tsx:192
 #~ msgid "TypeScript"
 #~ msgstr "TypeScript"
 
-#: src/pages/projects.tsx:146
+#: src/pages/projects.tsx:156
 msgid "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
 msgstr "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
 
@@ -132,6 +148,10 @@ msgstr "Une sélection de travaux où l'esthétique rencontre l'ingénierie cré
 #: src/routes/index.tsx:49
 #~ msgid "View Projects"
 #~ msgstr "View Projects"
+
+#: src/pages/projects.$projectId.tsx:149
+msgid "Visit Website"
+msgstr "Visiter le site"
 
 #: src/pages/index.tsx:299
 msgid "Voir mes projets"

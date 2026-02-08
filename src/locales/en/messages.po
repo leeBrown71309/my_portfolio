@@ -41,6 +41,10 @@ msgstr "Home"
 msgid "Available for projects"
 msgstr ""
 
+#: src/pages/projects.$projectId.tsx:97
+msgid "Back to selection"
+msgstr "Back to selection"
+
 #: src/pages/index.tsx:240
 msgid "Based in Dakar | Front-end Developer"
 msgstr ""
@@ -93,15 +97,23 @@ msgstr ""
 #~ msgid "Me contacter"
 #~ msgstr "Contact Me"
 
-#: src/pages/projects.tsx:130
+#: src/pages/projects.$projectId.tsx:286
+msgid "Next Project"
+msgstr "Next Project"
+
+#: src/pages/projects.tsx:138
 msgid "Portfolio Selection"
 msgstr "Portfolio Selection"
+
+#: src/pages/projects.$projectId.tsx:37
+msgid "Project not found"
+msgstr "Project not found"
 
 #: src/components/Navbar.tsx:177
 msgid "Projets"
 msgstr "Projects"
 
-#: src/pages/projects.tsx:133
+#: src/pages/projects.tsx:141
 msgid "PROJETS"
 msgstr "PROJECTS"
 
@@ -109,17 +121,25 @@ msgstr "PROJECTS"
 #~ msgid "projets réussis avec succès"
 #~ msgstr "successfully completed projects"
 
+#: src/pages/projects.$projectId.tsx:166
+msgid "Scroll for details"
+msgstr "Scroll for details"
+
 #: src/pages/index.tsx:192
 #~ msgid "TypeScript"
 #~ msgstr ""
 
-#: src/pages/projects.tsx:146
+#: src/pages/projects.tsx:156
 msgid "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
 msgstr "A selection of works where aesthetics meet creative engineering."
 
 #: src/pages/index.tsx:43
 #~ msgid "Univers Créatif"
 #~ msgstr "Creative Universe"
+
+#: src/pages/projects.$projectId.tsx:149
+msgid "Visit Website"
+msgstr "Visit Website"
 
 #: src/pages/index.tsx:299
 msgid "Voir mes projets"

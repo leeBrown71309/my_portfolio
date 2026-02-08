@@ -202,11 +202,11 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-150 lg:mx-10 transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] ${
+        className={`fixed top-0 left-0 right-0 z-150 lg:mx-10 transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] pointer-events-none ${
           scrolled ? "py-4" : "py-8"
         }`}
       >
-        <div className="max-w-[1800px] mx-auto px-8 flex items-center justify-between">
+        <div className="max-w-[1800px] mx-auto px-8 flex items-center justify-between pointer-events-auto">
           <Link to="/" className="group relative z-210">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -268,7 +268,10 @@ export function Navbar() {
 
             <div className="flex flex-col items-center gap-4 md:gap-8 relative z-10 w-full px-4">
               {navItems.map((item, i) => {
-                const isSelected = location.pathname === item.href;
+                const isSelected =
+                  item.href === "/"
+                    ? location.pathname === "/"
+                    : location.pathname.startsWith(item.href);
                 return (
                   <MenuItem
                     key={item.label}
