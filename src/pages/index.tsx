@@ -1,9 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Trans } from "@lingui/macro";
 import {
   motion,
   useSpring,
   useMotionValue,
+  useTransform,
   Variants,
   AnimatePresence,
 } from "framer-motion";
@@ -88,31 +89,49 @@ const MagneticLink = ({
   };
 
   return (
-    <motion.a
-      href={href}
+    <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ x: tx, y: ty }}
-      className={`inline-flex items-center gap-4 transition-all duration-500 group py-2 px-4 rounded-full ${primary ? "text-white" : "text-white/60 hover:text-white"}`}
+      className={`inline-flex items-center gap-4 transition-all duration-500 group py-2 px-4 rounded-full cursor-pointer ${primary ? "text-white" : "text-white/60 hover:text-white"}`}
     >
-      <span className="text-sm md:text-base font-eight uppercase tracking-tighter transition-transform duration-500 group-hover:scale-105">
-        {children}
-      </span>
-      <div
-        className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 overflow-hidden relative ${primary ? "group-hover:bg-primary-500 group-hover:border-primary-500" : "group-hover:border-white"}`}
-      >
-        {/* Fix: Better alignment for the double arrow animation */}
-        <div className="relative w-5 h-5 overflow-hidden">
-          <Icon className="w-5 h-5 absolute inset-0 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
-          <Icon className="w-5 h-5 absolute -left-6 top-6 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+      <Link to={href as any} className="flex items-center gap-4">
+        <span className="text-sm md:text-base font-eight uppercase tracking-tighter transition-transform duration-500 group-hover:scale-105">
+          {children}
+        </span>
+        <div
+          className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 overflow-hidden relative ${primary ? "group-hover:bg-primary-500 group-hover:border-primary-500" : "group-hover:border-white"}`}
+        >
+          <div className="relative w-5 h-5 overflow-hidden">
+            <Icon className="w-5 h-5 absolute inset-0 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+            <Icon className="w-5 h-5 absolute -left-6 top-6 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+          </div>
         </div>
-      </div>
-    </motion.a>
+      </Link>
+    </motion.div>
   );
 };
 
 function App() {
   const { isLoading } = useLoading();
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 50, stiffness: 300 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    mouseX.set(clientX);
+    mouseY.set(clientY);
+  };
+
+  // Parallax values for background blobs
+  const bgX = useTransform(smoothX, [0, 2000], [20, -20]);
+  const bgY = useTransform(smoothY, [0, 1200], [20, -20]);
+  const bgXSlow = useTransform(smoothX, [0, 2000], [10, -10]);
+  const bgYSlow = useTransform(smoothY, [0, 1200], [10, -10]);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -140,7 +159,10 @@ function App() {
   };
 
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#070b14] relative selection:bg-primary-500 selection:text-white">
+    <div
+      onMouseMove={handleMouseMove}
+      className="h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#070b14] relative selection:bg-primary-500 selection:text-white"
+    >
       {/* Editorial Grid Overlay */}
       <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-12 pointer-events-none opacity-[0.03]">
         {[...Array(12)].map((_, i) => (
@@ -153,11 +175,36 @@ function App() {
 
       {/* Atmospheric Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Layered Mouse Follow Glow */}
+        <motion.div
+          style={{
+            left: smoothX,
+            top: smoothY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          className="absolute w-[800px] h-[800px] bg-primary-500/5 blur-[120px] rounded-full z-0"
+        />
+        <motion.div
+          style={{
+            left: smoothX,
+            top: smoothY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          transition={{ type: "spring", damping: 30, stiffness: 200 }}
+          className="absolute w-[300px] h-[300px] bg-blue-500/10 blur-[80px] rounded-full z-0"
+        />
+
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            x: [0, 50, 0],
+            rotate: [0, 5, 0],
             opacity: [0.1, 0.15, 0.1],
+          }}
+          style={{
+            x: bgX,
+            y: bgY,
           }}
           transition={{ duration: 25, repeat: Infinity }}
           className="absolute -top-[20%] -left-[10%] w-[80%] h-[80%] bg-primary-900/40 blur-[150px] rounded-full"
@@ -165,8 +212,12 @@ function App() {
         <motion.div
           animate={{
             scale: [1.2, 1, 1.2],
-            x: [0, -50, 0],
+            rotate: [0, -5, 0],
             opacity: [0.08, 0.12, 0.08],
+          }}
+          style={{
+            x: bgXSlow,
+            y: bgYSlow,
           }}
           transition={{ duration: 20, repeat: Infinity }}
           className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] bg-blue-900/30 blur-[150px] rounded-full"
@@ -244,10 +295,10 @@ function App() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center gap-4 md:gap-12"
             >
-              <MagneticLink href="/#projets" primary>
+              <MagneticLink href="/projects" primary>
                 <Trans>Voir mes projets</Trans>
               </MagneticLink>
-              <MagneticLink href="/#a-propos" icon={Plus}>
+              <MagneticLink href="/about" icon={Plus}>
                 <Trans>En savoir plus</Trans>
               </MagneticLink>
             </motion.div>

@@ -16,6 +16,7 @@ import { CustomCursor } from "../components/CustomCursor";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { Loader } from "../components/Loader";
 import { LoadingProvider } from "../context/LoadingContext";
+import { NotFound } from "../components/NotFound";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -72,6 +73,7 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
+  notFoundComponent: NotFound,
 });
 
 function RootComponent() {
