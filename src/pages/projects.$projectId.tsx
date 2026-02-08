@@ -66,6 +66,14 @@ function ProjectDetailsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const bigTextX = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const bigTextX2 = useTransform(scrollYProgress, [0, 1], [-200, 200]);
+
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const scale = useTransform(scrollY, [0, 400], [1, 1.1]);
   const yBanner = useTransform(scrollY, [0, 400], [0, 100]);
@@ -121,6 +129,22 @@ function ProjectDetailsPage() {
             variants={containerVariants}
             className="relative"
           >
+            {/* Background Floating Typography */}
+            <div className="fixed inset-0 pointer-events-none z-0 opacity-20 flex flex-col justify-between py-24 select-none mix-blend-plus-lighter">
+              <motion.div
+                style={{ x: bigTextX }}
+                className="text-[25vw] font-eight leading-none whitespace-nowrap text-white/5"
+              >
+                {project.name.toUpperCase()} {project.name.toUpperCase()}
+              </motion.div>
+              <motion.div
+                style={{ x: bigTextX2 }}
+                className="text-[25vw] font-eight leading-none whitespace-nowrap self-end text-white/5"
+              >
+                {project.mainCategory.toUpperCase()}{" "}
+                {project.mainCategory.toUpperCase()}
+              </motion.div>
+            </div>
             {/* Navigation Header */}
             <motion.nav
               variants={itemVariants}

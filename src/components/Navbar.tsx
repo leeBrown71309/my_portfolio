@@ -175,8 +175,8 @@ export function Navbar() {
   const navItems = [
     { label: t`Accueil`, href: "/" },
     { label: t`Projets`, href: "/projects" },
-    { label: t`À propos`, href: "/#a-propos" },
-    { label: t`Contact`, href: "/#contact" },
+    { label: t`À propos`, href: "/about" },
+    { label: t`Contact`, href: "/contact" },
   ];
 
   const menuVariants: Variants = {

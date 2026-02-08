@@ -298,7 +298,7 @@ function App() {
               <MagneticLink href="/projects" primary>
                 <Trans>Voir mes projets</Trans>
               </MagneticLink>
-              <MagneticLink href="/#a-propos" icon={Plus}>
+              <MagneticLink href="/about" icon={Plus}>
                 <Trans>En savoir plus</Trans>
               </MagneticLink>
             </motion.div>
