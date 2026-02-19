@@ -1,0 +1,41 @@
+name: Deploy Portfolio
+on:
+  push:
+    branches:
+      - main # Le déploiement se lancera à chaque push sur main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Aller dans le dossier du projet
+            cd /var/www/leeeight-portfolio
+
+            # Si le dossier est vide, on clone, sinon on pull
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }}.git .
+            else
+              git pull origin main
+            fi
+
+            # Installation de Bun (au cas où) et déploiement
+            export BUN_INSTALL="$HOME/.bun"
+            export PATH="$BUN_INSTALL/bin:$PATH"
+
+            bun install
+            bun run build
+
+            # Lancement ou redémarrage avec PM2
+            pm2 delete leeeight-site || true
+            pm2 start "bun run start" --name "leeeight-site"
+            pm2 save
