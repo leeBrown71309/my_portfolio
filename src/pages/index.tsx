@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Trans } from "@lingui/macro";
 import {
   motion,
@@ -8,7 +8,7 @@ import {
   Variants,
   AnimatePresence,
 } from "framer-motion";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import React from "react";
 import { useLoading } from "../context/LoadingContext";
 
@@ -16,101 +16,7 @@ export const Route = createFileRoute("/")({
   component: App,
 });
 
-const MagneticChar = ({ char }: { char: string }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 15, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distanceX = e.clientX - centerX;
-    const distanceY = e.clientY - centerY;
-
-    // Magnetic pull range
-    if (Math.abs(distanceX) < 40 && Math.abs(distanceY) < 40) {
-      x.set(distanceX * 0.35);
-      y.set(distanceY * 0.35);
-    } else {
-      x.set(0);
-      y.set(0);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.span
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      className="inline-block cursor-default select-none transition-colors duration-300 hover:text-primary-500"
-    >
-      {char === " " ? "\u00A0" : char}
-    </motion.span>
-  );
-};
-
-const MagneticLink = ({
-  children,
-  href,
-  icon: Icon = ArrowUpRight,
-  primary = false,
-}: {
-  children: React.ReactNode;
-  href: string;
-  icon?: any;
-  primary?: boolean;
-}) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springConfig = { damping: 20, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * 0.2);
-    y.set((e.clientY - centerY) * 0.2);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      className={`inline-flex items-center gap-4 transition-all duration-500 group py-2 px-4 rounded-full cursor-pointer ${primary ? "text-white" : "text-white/60 hover:text-white"}`}
-    >
-      <Link to={href as any} className="flex items-center gap-4">
-        <span className="text-sm md:text-base font-eight uppercase tracking-tighter transition-transform duration-500 group-hover:scale-105">
-          {children}
-        </span>
-        <div
-          className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 overflow-hidden relative ${primary ? "group-hover:bg-primary-500 group-hover:border-primary-500" : "group-hover:border-white"}`}
-        >
-          <div className="relative w-5 h-5 overflow-hidden">
-            <Icon className="w-5 h-5 absolute inset-0 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
-            <Icon className="w-5 h-5 absolute -left-6 top-6 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
-          </div>
-        </div>
-      </Link>
-    </motion.div>
-  );
-};
+import { MagneticChar, MagneticLink } from "../components/Magnetic";
 
 function App() {
   const { isLoading } = useLoading();
@@ -237,7 +143,9 @@ function App() {
             {/* Top Tagline */}
             <motion.div variants={itemVariants} className="mb-8 md:mb-12">
               <span className="text-primary-500 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] md:tracking-[0.5em] block">
-                <Trans>Based in Dakar | Front-end Developer</Trans>
+                <Trans>
+                  Based in Dakar | Front-end Developer | UI/UX Designer
+                </Trans>
               </span>
             </motion.div>
 

@@ -1,64 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Trans, t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Download,
   ExternalLink,
   GraduationCap,
   Layout,
-  MousePointer2,
   Sparkles,
+  Code2,
+  Database,
+  Globe,
+  Layers,
+  Wrench,
+  Terminal,
 } from "lucide-react";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useLoading } from "../context/LoadingContext";
-
-const MagneticChar = ({ char }: { char: string }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 15, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distanceX = e.clientX - centerX;
-    const distanceY = e.clientY - centerY;
-
-    if (Math.abs(distanceX) < 50 && Math.abs(distanceY) < 50) {
-      x.set(distanceX * 0.4);
-      y.set(distanceY * 0.4);
-    } else {
-      x.set(0);
-      y.set(0);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.span
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      className="inline-block cursor-default select-none transition-colors duration-300 hover:text-primary-500"
-    >
-      {char === " " ? "\u00A0" : char}
-    </motion.span>
-  );
-};
+import { aboutData } from "../data/about";
+import { MagneticChar, MagneticCard } from "../components/Magnetic";
 
 const AnimatedCreativeIcon = () => (
   <motion.svg
@@ -118,59 +78,6 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const MagneticCard = ({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 20, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * 0.1);
-    y.set((e.clientY - centerY) * 0.1);
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      whileHover="hover"
-      className={`relative group overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/3 p-8 backdrop-blur-xl transition-colors hover:border-primary-500/30 ${className}`}
-    >
-      <motion.div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(600px circle at var(--x) var(--y), rgba(99, 102, 241, 0.15), transparent 40%)`,
-          // @ts-ignore
-          "--x": `${mouseX}px`,
-          "--y": `${mouseY}px`,
-        }}
-      />
-      {children}
-    </motion.div>
-  );
-};
-
 const ExperienceStat = ({
   label,
   years,
@@ -207,24 +114,7 @@ function AboutPage() {
   const bigTextX = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const bigTextX2 = useTransform(scrollYProgress, [0, 1], [-200, 200]);
 
-  const skills = [
-    "UI/UX Design",
-    "Strategy",
-    "Product Management",
-    "User Research",
-    "Agile",
-    "Design Systems",
-    "HTML & CSS",
-    "CMS Design",
-    "Webflow",
-    "Framer",
-    "Graphic Design",
-  ];
-
-  const cvLink =
-    i18n.locale === "fr"
-      ? "/docs/CV_LEE_MAKOSSO_FR.pdf"
-      : "/docs/CV_LEE_MAKOSSO_EN.pdf";
+  const cvLink = i18n.locale === "fr" ? "/Mon cv fr.pdf" : "/Mon cv en.pdf";
 
   return (
     <div
@@ -255,7 +145,10 @@ function AboutPage() {
             animate={isLoading ? { opacity: 0 } : { opacity: 1, y: 0 }}
             className="lg:col-span-8"
           >
-            <MagneticCard className="h-full flex flex-col justify-end min-h-[500px] md:min-h-[600px] relative">
+            <MagneticCard
+              className="h-full flex flex-col justify-end min-h-[500px] md:min-h-[600px] relative"
+              strength={0.1}
+            >
               <div className="absolute top-12 left-12">
                 <div className="w-16 h-16 rounded-2xl bg-primary-500/10 flex items-center justify-center overflow-hidden">
                   <AnimatedCreativeIcon />
@@ -277,16 +170,23 @@ function AboutPage() {
                     .map((word, i) => (
                       <span key={i} className="flex whitespace-nowrap">
                         {word.split("").map((c, j) => (
-                          <MagneticChar key={j} char={c} />
+                          <MagneticChar
+                            key={j}
+                            char={c}
+                            range={50}
+                            strength={0.4}
+                          />
                         ))}
                       </span>
                     ))}
                 </h1>
                 <p className="text-white/60 font-outfit text-xl md:text-2xl leading-relaxed">
                   <Trans>
-                    15 ans à l'intersection du design et de la technologie. Je
-                    ne construis pas seulement des interfaces, je crée des
-                    écosystèmes émotionnels.
+                    Développeur passionnée par la création de sites et
+                    d'applications web/mobile innovantes. Expérience de 5 ans en
+                    développement front-end et 2ans en back-end. Si vous
+                    appréciez mon travail, n'hésitez pas à me contacter ce
+                    serait un plaisir de collaborer avec vous.
                   </Trans>
                 </p>
               </div>
@@ -315,7 +215,7 @@ function AboutPage() {
                     Lee Makosso
                   </span>
                   <span className="text-primary-400 font-mono text-[10px] tracking-widest uppercase">
-                    Creative Director
+                    <Trans>Creative Director</Trans>
                   </span>
                 </div>
                 <motion.div
@@ -336,85 +236,127 @@ function AboutPage() {
 
         {/* SECTION 2: BENTO GRID EXPERIENCE */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {/* Card: Education */}
-          <MagneticCard className="flex flex-col justify-between min-h-[300px]">
-            <GraduationCap className="w-10 h-10 text-primary-500 mb-8" />
-            <div>
-              <h3 className="text-white/40 font-gimbal text-[10px] uppercase tracking-widest mb-4">
-                <Trans>Éducation</Trans>
-              </h3>
-              <p className="text-white text-2xl font-outfit leading-snug">
-                <Trans>Degree in Brand Communications</Trans>
-              </p>
-            </div>
-          </MagneticCard>
+          {/* Card: Skills Cloud (PROMINENT - Highlighted) */}
+          <motion.div
+            className="lg:col-span-2 flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <MagneticCard className="flex flex-col h-full relative group/skills overflow-hidden border-primary-500/30 bg-primary-500/5 backdrop-blur-sm">
+              {/* Highlight Background Effect */}
+              <div className="absolute -top-24 -right-24 w-80 h-80 bg-primary-500/10 blur-[100px] rounded-full group-hover/skills:bg-primary-500/20 transition-colors duration-1000" />
 
-          {/* Card: Experience Deep Dive */}
-          <MagneticCard className="lg:col-span-2 row-span-2 flex flex-col">
-            <div className="flex justify-between items-start mb-12">
-              <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center">
-                <Layout className="w-6 h-6 text-primary-400" />
+              <div className="flex items-center justify-between mb-12 relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-primary-500/20 flex items-center justify-center border border-primary-500/40">
+                    <Code2 className="w-7 h-7 text-primary-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-eight text-3xl uppercase tracking-tighter leading-none mb-1">
+                      <Trans>Technical Stack</Trans>
+                    </h3>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+                      <span className="text-primary-400/60 font-mono text-[10px] uppercase tracking-widest">
+                        <Trans>Core Proficiencies</Trans>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-right">
-                <span className="font-eight text-5xl text-primary-500">15</span>
-                <span className="text-white/20 font-gimbal text-xs uppercase tracking-widest block">
-                  Years
-                </span>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 relative z-10">
+                {aboutData.skills.map((cat, i) => {
+                  const Icon =
+                    {
+                      "Web Foundation": Globe,
+                      Languages: Terminal,
+                      Frameworks: Layers,
+                      "Architecture & Data": Database,
+                      "Tools & CMS": Wrench,
+                    }[i18n._(cat.category as any)] || Code2;
+
+                  return (
+                    <div key={i} className="group/cat">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover/cat:bg-primary-500 group-hover/cat:scale-110 transition-all duration-500">
+                          <Icon className="w-4 h-4 text-white/40 group-hover/cat:text-white transition-colors" />
+                        </div>
+                        <h4 className="text-white/30 font-mono text-[11px] uppercase tracking-[0.2em] group-hover/cat:text-white transition-colors">
+                          {i18n._(cat.category as any)}
+                        </h4>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {cat.items.map((skill, j) => (
+                          <motion.span
+                            key={j}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-white/50 text-[10px] font-mono uppercase tracking-tighter hover:bg-primary-500 hover:text-white hover:border-primary-500/50 transition-all duration-300 cursor-default"
+                          >
+                            {skill}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+            </MagneticCard>
+          </motion.div>
+
+          {/* Column for Education and Expertise */}
+          <div className="lg:col-span-1 flex flex-col gap-8">
+            {/* Card: Education */}
+            <div className="flex-1">
+              <MagneticCard className="flex flex-col justify-between h-full min-h-[250px] group/edu">
+                <div className="flex justify-between items-start">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover/edu:bg-primary-500/10 group-hover/edu:border-primary-500/20 transition-all duration-500">
+                    <GraduationCap className="w-6 h-6 text-white/40 group-hover/edu:text-primary-400 transition-colors" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-white/20 font-mono text-[10px] uppercase tracking-widest mb-4">
+                    <Trans>Éducation</Trans>
+                  </h3>
+                  <p className="text-white text-2xl font-eight uppercase leading-tight group-hover:text-primary-400 transition-colors">
+                    <Trans>MIT university | Groupe Supdeco Dakar</Trans>
+                  </p>
+                </div>
+              </MagneticCard>
             </div>
 
-            <h2 className="text-white font-eight text-3xl mb-8 uppercase tracking-tighter">
-              <Trans>Expertise Timeline</Trans>
-            </h2>
+            {/* Card: Expertise Summary */}
+            <div className="flex-1">
+              <MagneticCard className="flex flex-col h-full bg-[#0a0f1a] border-white/5">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
+                    <Layout className="w-5 h-5 text-white/40" />
+                  </div>
+                  <div className="bg-primary-500/10 px-3 py-1 rounded-full border border-primary-500/20">
+                    <span className="text-primary-400 font-eight text-sm">
+                      5+ YEARS
+                    </span>
+                  </div>
+                </div>
 
-            <div className="space-y-4">
-              <ExperienceStat
-                label={i18n._(t`Web Design`)}
-                years="12 Years"
-                delay={0.1}
-              />
-              <ExperienceStat
-                label={i18n._(t`Software Design`)}
-                years="10 Years"
-                delay={0.2}
-              />
-              <ExperienceStat
-                label={i18n._(t`Product Management`)}
-                years="4 Years"
-                delay={0.3}
-              />
-              <ExperienceStat
-                label={i18n._(t`Front-end Dev`)}
-                years="3 Years"
-                delay={0.4}
-              />
-              <ExperienceStat
-                label={i18n._(t`Webflow/Framer`)}
-                years="5 Years"
-                delay={0.5}
-              />
-            </div>
-          </MagneticCard>
+                <h2 className="text-white font-eight text-2xl mb-6 uppercase tracking-tighter shadow-sm">
+                  <Trans>Expertise</Trans>
+                </h2>
 
-          {/* Card: Skills Cloud */}
-          <MagneticCard className="flex flex-col">
-            <div className="flex items-center gap-3 mb-8">
-              <MousePointer2 className="w-5 h-5 text-primary-500" />
-              <h3 className="text-white/40 font-gimbal text-[10px] uppercase tracking-widest">
-                <Trans>Hard Skills</Trans>
-              </h3>
+                <div className="space-y-1">
+                  {aboutData.expertise.map((item, i) => (
+                    <ExperienceStat
+                      key={i}
+                      label={i18n._(item.label as any)}
+                      years={i18n._(item.years as any)}
+                      delay={(i + 1) * 0.1}
+                    />
+                  ))}
+                </div>
+              </MagneticCard>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill, i) => (
-                <span
-                  key={i}
-                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-white/50 text-[11px] font-mono uppercase tracking-tighter hover:bg-primary-500/10 hover:text-white transition-all cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </MagneticCard>
+          </div>
         </div>
 
         {/* SECTION 3: CTA & DOWNLOAD */}
@@ -453,7 +395,7 @@ function AboutPage() {
                 <ExternalLink className="w-6 h-6 text-white/40 group-hover/card:text-white transition-colors" />
               </div>
               <span className="text-white/40 font-gimbal text-[10px] uppercase tracking-widest mb-1">
-                Get in touch
+                <Trans>Get in touch</Trans>
               </span>
               <span className="text-white font-eight text-lg">
                 hello@leeeight.com

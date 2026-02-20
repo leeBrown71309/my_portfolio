@@ -1,13 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Trans, t } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Mail,
   Linkedin,
@@ -18,107 +12,13 @@ import {
   Clock,
   Sparkles,
 } from "lucide-react";
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const MagneticChar = ({
-  char,
-  className = "",
-}: {
-  char: string;
-  className?: string;
-}) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springConfig = { damping: 15, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distanceX = e.clientX - centerX;
-    const distanceY = e.clientY - centerY;
-    if (Math.abs(distanceX) < 100 && Math.abs(distanceY) < 100) {
-      x.set(distanceX * 0.4);
-      y.set(distanceY * 0.4);
-    } else {
-      x.set(0);
-      y.set(0);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.span
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      className={`inline-block cursor-default select-none transition-colors duration-300 hover:text-primary-500 ${className}`}
-    >
-      {char === " " ? "\u00A0" : char}
-    </motion.span>
-  );
-};
-
-const MagneticCard = ({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springConfig = { damping: 20, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * 0.05);
-    y.set((e.clientY - centerY) * 0.05);
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      className={`relative group overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/3 p-10 backdrop-blur-xl transition-colors hover:border-primary-500/30 ${className}`}
-    >
-      <motion.div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(800px circle at var(--x) var(--y), rgba(99, 102, 241, 0.1), transparent 40%)`,
-          // @ts-ignore
-          "--x": `${mouseX}px`,
-          "--y": `${mouseY}px`,
-        }}
-      />
-      {children}
-    </motion.div>
-  );
-};
+import { MagneticChar, MagneticCard } from "../components/Magnetic";
 
 function ContactPage() {
   const { i18n } = useLingui();
@@ -176,7 +76,7 @@ function ContactPage() {
               .map((word, i) => (
                 <span key={i} className="flex whitespace-nowrap">
                   {word.split("").map((c, j) => (
-                    <MagneticChar key={j} char={c} />
+                    <MagneticChar key={j} char={c} range={100} strength={0.4} />
                   ))}
                 </span>
               ))}
@@ -203,12 +103,17 @@ function ContactPage() {
                   <Trans>Envoyez-moi un message</Trans>
                 </h3>
                 <a
-                  href="mailto:hello@leeeight.com"
+                  href="mailto:leeeight71@gmail.com"
                   className="block group relative overflow-hidden"
                 >
                   <span className="text-white text-5xl md:text-8xl font-eight tracking-tighter group-hover:text-primary-500 transition-colors duration-500 flex flex-wrap">
-                    {"hello@leeeight.com".split("").map((c, i) => (
-                      <MagneticChar key={i} char={c} />
+                    {"leeeight71@gmail.com".split("").map((c, i) => (
+                      <MagneticChar
+                        key={i}
+                        char={c}
+                        range={100}
+                        strength={0.4}
+                      />
                     ))}
                   </span>
                   <motion.div
@@ -296,7 +201,7 @@ function ContactPage() {
                 {
                   icon: Globe,
                   label: "Dribbble",
-                  href: "https://dribbble.com/leeeight",
+                  href: "https://dribbble.com/lee-eight",
                 },
               ].map((social, i) => (
                 <a

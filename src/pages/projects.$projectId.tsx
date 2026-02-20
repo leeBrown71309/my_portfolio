@@ -7,59 +7,20 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
-import projectsData from "../data/projects.json";
-import { Project } from "../types/project";
+import { useLingui } from "@lingui/react";
+import { projectsData } from "../data/projects";
+import type { Project } from "../types/project";
 import { useLoading } from "../context/LoadingContext";
 import { ArrowLeft, ExternalLink, ChevronRight } from "lucide-react";
-import React from "react";
-import { useMotionValue, useSpring } from "framer-motion";
 
-const MagneticChar = ({ char }: { char: string }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 15, stiffness: 150 };
-  const tx = useSpring(x, springConfig);
-  const ty = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distanceX = e.clientX - centerX;
-    const distanceY = e.clientY - centerY;
-
-    if (Math.abs(distanceX) < 40 && Math.abs(distanceY) < 40) {
-      x.set(distanceX * 0.35);
-      y.set(distanceY * 0.35);
-    } else {
-      x.set(0);
-      y.set(0);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.span
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: tx, y: ty }}
-      className="inline-block cursor-default select-none transition-colors duration-300 hover:text-primary-500"
-    >
-      {char === " " ? "\u00A0" : char}
-    </motion.span>
-  );
-};
+import { MagneticChar } from "../components/Magnetic";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectDetailsPage,
 });
 
 function ProjectDetailsPage() {
+  const { i18n } = useLingui();
   const { projectId } = useParams({ from: "/projects/$projectId" });
   const { isLoading } = useLoading();
   const project = (projectsData as Project[]).find((p) => p.id === projectId);
@@ -141,8 +102,8 @@ function ProjectDetailsPage() {
                 style={{ x: bigTextX2 }}
                 className="text-[25vw] font-eight leading-none whitespace-nowrap self-end text-white/5"
               >
-                {project.mainCategory.toUpperCase()}{" "}
-                {project.mainCategory.toUpperCase()}
+                {i18n._(project.mainCategory as any).toUpperCase()}{" "}
+                {i18n._(project.mainCategory as any).toUpperCase()}
               </motion.div>
             </div>
             {/* Navigation Header */}
@@ -159,7 +120,7 @@ function ProjectDetailsPage() {
                 </div>
               </Link>
               <div className="text-[10px] lg:mr-10 font-mono uppercase tracking-[0.5em] opacity-40">
-                {project.year} / {project.mainCategory}
+                {project.year} / {i18n._(project.mainCategory as any)}
               </div>
             </motion.nav>
 
@@ -185,7 +146,7 @@ function ProjectDetailsPage() {
                   variants={itemVariants}
                   className="text-primary-500 font-mono text-sm font-bold uppercase tracking-[0.4em] block mb-6"
                 >
-                  {project.categories.join(" • ")}
+                  {project.categories.map((c) => i18n._(c as any)).join(" • ")}
                 </motion.span>
                 <motion.h1
                   variants={itemVariants}
@@ -205,7 +166,7 @@ function ProjectDetailsPage() {
                     variants={itemVariants}
                     className="text-xl md:text-3xl font-dm-sans text-white/60 max-w-2xl leading-tight"
                   >
-                    {project.description}
+                    {i18n._(project.description as any)}
                   </motion.p>
 
                   {project.url && (
@@ -263,7 +224,7 @@ function ProjectDetailsPage() {
                     Role
                   </span>
                   <span className="text-xl md:text-2xl font-eight uppercase">
-                    {project.role.role}
+                    {i18n._(project.role.role as any)}
                   </span>
                 </motion.div>
 
@@ -306,37 +267,55 @@ function ProjectDetailsPage() {
                 <section key={idx} className="px-8 md:px-24">
                   <div className="max-w-7xl mx-auto">
                     <motion.div
+                      layout
                       variants={itemVariants}
                       className="mb-16 max-w-3xl"
                     >
-                      <h2 className="text-3xl md:text-6xl font-eight uppercase mb-8 leading-none">
-                        {section.title}
-                      </h2>
-                      <p className="text-lg md:text-2xl text-white/50 font-dm-sans leading-relaxed">
-                        {section.description}
-                      </p>
+                      {section.title &&
+                        i18n._(section.title as any) &&
+                        !i18n._(section.title as any).includes("+Z5u4") && (
+                          <h2 className="text-3xl md:text-6xl font-eight uppercase mb-8 leading-none">
+                            {i18n._(section.title as any)}
+                          </h2>
+                        )}
+
+                      {section.description &&
+                        i18n._(section.description as any) &&
+                        !i18n
+                          ._(section.description as any)
+                          .includes("+Z5u4") && (
+                          <p className="text-lg md:text-2xl text-white/50 font-dm-sans leading-relaxed">
+                            {i18n._(section.description as any)}
+                          </p>
+                        )}
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                    <div className="flex flex-col gap-16 md:gap-32 items-center w-full">
                       {section.images.map((img, imgIdx) => (
                         <motion.div
                           key={imgIdx}
-                          initial={{ opacity: 0, y: 50 }}
+                          initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true, margin: "-100px" }}
-                          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                          className={`relative overflow-hidden group aspect-16/10 rounded-lg bg-neutral-900 ${
-                            section.images.length === 1
-                              ? "md:col-span-2 aspect-21/9"
-                              : ""
-                          }`}
+                          transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                          }}
+                          className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-4xl border border-white/5 bg-neutral-950 group shadow-2xl"
                         >
-                          <img
+                          <motion.img
                             src={img}
-                            alt={`${section.title} ${imgIdx + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                            alt={`${i18n._(section.title as any)} ${imgIdx + 1}`}
+                            className="w-full h-auto object-cover"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{
+                              duration: 0.8,
+                              ease: "easeOut",
+                            }}
                           />
-                          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                          <div className="absolute inset-0 border border-white/5 rounded-4xl pointer-events-none transition-all duration-700 group-hover:border-primary-500/20" />
                         </motion.div>
                       ))}
                     </div>

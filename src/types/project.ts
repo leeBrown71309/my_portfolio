@@ -1,21 +1,24 @@
+import type { MessageDescriptor } from "@lingui/core";
+
 export interface ProjectSection {
-  title: string;
-  description: string;
+  title: string | MessageDescriptor;
+  description: string | MessageDescriptor;
   images: string[];
 }
 
 export interface ProjectRole {
-  role: string;
-  responsibility: string;
+  role: string | MessageDescriptor;
+  responsibility: string | MessageDescriptor;
 }
 
 export interface Project {
   id: string;
   banner: string;
+  preview: string;
   name: string;
-  mainCategory: string;
-  categories: string[];
-  description: string;
+  mainCategory: string | MessageDescriptor;
+  categories: (string | MessageDescriptor)[];
+  description: string | MessageDescriptor;
   url?: string;
   client: string;
   year: string;

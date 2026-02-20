@@ -17,7 +17,7 @@ msgstr ""
 msgid " Get in touch"
 msgstr " Get in touch"
 
-#: src/pages/index.tsx:286
+#: src/pages/index.tsx:194
 msgid " Je sculpte des interfaces numériques où l'esthétique rencontre la performance."
 msgstr " Je sculpte des interfaces numériques où l'esthétique rencontre la performance."
 
@@ -37,7 +37,7 @@ msgstr " Local Time"
 #~ msgid "12 ans en Design Web"
 #~ msgstr "12 ans en Design Web"
 
-#: src/pages/about.tsx:286
+#: src/pages/about.tsx:182
 msgid "15 ans à l'intersection du design et de la technologie. Je ne construis pas seulement des interfaces, je crée des écosystèmes émotionnels."
 msgstr "15 ans à l'intersection du design et de la technologie. Je ne construis pas seulement des interfaces, je crée des écosystèmes émotionnels."
 
@@ -61,7 +61,7 @@ msgstr "Accueil"
 #~ msgid "An d'expérience"
 #~ msgstr "An d'expérience"
 
-#: src/pages/index.tsx:320
+#: src/pages/index.tsx:228
 msgid "Available for projects"
 msgstr "Available for projects"
 
@@ -70,8 +70,12 @@ msgstr "Available for projects"
 #~ msgstr "Retour à la sélection"
 
 #: src/pages/index.tsx:240
-msgid "Based in Dakar | Front-end Developer"
-msgstr "Based in Dakar | Front-end Developer"
+#~ msgid "Based in Dakar | Front-end Developer"
+#~ msgstr "Based in Dakar | Front-end Developer"
+
+#: src/pages/index.tsx:146
+msgid "Based in Dakar | Front-end Developer | UI/UX Designer"
+msgstr "Based in Dakar | Front-end Developer | UI/UX Designer"
 
 #: src/pages/index.tsx:40
 #~ msgid "Bienvenue dans mon"
@@ -97,11 +101,15 @@ msgstr "Contact"
 #~ msgid "CONTACT ME"
 #~ msgstr "CONTACT ME"
 
+#: src/pages/about.tsx:214
+msgid "Creative Director"
+msgstr "Creative Director"
+
 #: src/pages/about.tsx:283
 #~ msgid "Créativité alimentée par la précision."
 #~ msgstr "Créativité alimentée par la précision."
 
-#: src/pages/about.tsx:430
+#: src/pages/about.tsx:318
 msgid "Curriculum Vitae"
 msgstr "Curriculum Vitae"
 
@@ -109,11 +117,11 @@ msgstr "Curriculum Vitae"
 #~ msgid "De quoi voulez-vous parler ?"
 #~ msgstr "De quoi voulez-vous parler ?"
 
-#: src/pages/about.tsx:271
+#: src/pages/about.tsx:162
 msgid "DÉFINITION DU PRODUIT"
 msgstr "DÉFINITION DU PRODUIT"
 
-#: src/pages/about.tsx:347
+#: src/pages/about.tsx:243
 msgid "Degree in Brand Communications"
 msgstr "Degree in Brand Communications"
 
@@ -137,7 +145,7 @@ msgstr "Degree in Brand Communications"
 #~ msgid "Disponible pour de nouveaux projets"
 #~ msgstr "Disponible pour de nouveaux projets"
 
-#: src/pages/about.tsx:344
+#: src/pages/about.tsx:240
 msgid "Éducation"
 msgstr "Éducation"
 
@@ -146,7 +154,7 @@ msgstr "Éducation"
 #~ msgid "Email"
 #~ msgstr "Email"
 
-#: src/pages/index.tsx:302
+#: src/pages/index.tsx:210
 msgid "En savoir plus"
 msgstr "En savoir plus"
 
@@ -154,7 +162,7 @@ msgstr "En savoir plus"
 #~ msgid "Envoyer"
 #~ msgstr "Envoyer"
 
-#: src/pages/contact.tsx:203
+#: src/pages/contact.tsx:103
 msgid "Envoyez-moi un message"
 msgstr "Envoyez-moi un message"
 
@@ -167,31 +175,35 @@ msgstr "Envoyez-moi un message"
 #~ msgid "Expertise"
 #~ msgstr "Expertise"
 
-#: src/pages/about.tsx:367
+#: src/pages/about.tsx:263
 msgid "Expertise Timeline"
 msgstr "Expertise Timeline"
 
 #: src/pages/about.tsx:387
-msgid "Front-end Dev"
-msgstr "Front-end Dev"
+#~ msgid "Front-end Dev"
+#~ msgstr "Front-end Dev"
 
-#: src/pages/contact.tsx:170
+#: src/pages/about.tsx:344
+msgid "Get in touch"
+msgstr "Get in touch"
+
+#: src/pages/contact.tsx:70
 msgid "GET IN TOUCH"
 msgstr "GET IN TOUCH"
 
-#: src/pages/about.tsx:404
+#: src/pages/about.tsx:283
 msgid "Hard Skills"
 msgstr "Hard Skills"
 
-#: src/pages/contact.tsx:254
+#: src/pages/contact.tsx:159
 msgid "Heure Locale"
 msgstr "Heure Locale"
 
-#: src/pages/index.tsx:251
+#: src/pages/index.tsx:159
 msgid "Hey, je suis"
 msgstr "Hey, je suis"
 
-#: src/components/NotFound.tsx:39
+#: src/components/NotFound.tsx:38
 msgid "Il semblerait que vous ayez bifurqué vers un univers numérique inexistant."
 msgstr "Il semblerait que vous ayez bifurqué vers un univers numérique inexistant."
 
@@ -199,7 +211,7 @@ msgstr "Il semblerait que vous ayez bifurqué vers un univers numérique inexist
 #~ msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
 #~ msgstr "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
 
-#: src/pages/about.tsx:275
+#: src/pages/about.tsx:166
 msgid "L'art de sculpter le digital."
 msgstr "L'art de sculpter le digital."
 
@@ -207,11 +219,11 @@ msgstr "L'art de sculpter le digital."
 #~ msgid "Let's Talk"
 #~ msgstr "Let's Talk"
 
-#: src/pages/contact.tsx:244
+#: src/pages/contact.tsx:149
 msgid "Localisation"
 msgstr "Localisation"
 
-#: src/pages/index.tsx:270
+#: src/pages/index.tsx:178
 msgid "Mais vous pouvez m’appeler"
 msgstr "Mais vous pouvez m’appeler"
 
@@ -231,7 +243,7 @@ msgstr "Mais vous pouvez m’appeler"
 #~ msgid "My Portfolio"
 #~ msgstr "My Portfolio"
 
-#: src/pages/projects.$projectId.tsx:357
+#: src/pages/projects.$projectId.tsx:316
 msgid "Next Project"
 msgstr "Projet suivant"
 
@@ -239,15 +251,15 @@ msgstr "Projet suivant"
 #~ msgid "Nom"
 #~ msgstr "Nom"
 
-#: src/pages/contact.tsx:226
+#: src/pages/contact.tsx:131
 msgid "Ouvert aux opportunités de collaboration partout dans le monde."
 msgstr "Ouvert aux opportunités de collaboration partout dans le monde."
 
-#: src/components/NotFound.tsx:36
+#: src/components/NotFound.tsx:35
 msgid "Page Perdue"
 msgstr "Page Perdue"
 
-#: src/components/NotFound.tsx:62
+#: src/components/NotFound.tsx:61
 msgid "Page précédente"
 msgstr "Page précédente"
 
@@ -259,15 +271,15 @@ msgstr "Portfolio Selection"
 #~ msgid "Prêt à façonner le futur de votre produit ?"
 #~ msgstr "Prêt à façonner le futur de votre produit ?"
 
-#: src/pages/contact.tsx:196
+#: src/pages/contact.tsx:96
 msgid "Prêt pour l'aventure ?"
 msgstr "Prêt pour l'aventure ?"
 
 #: src/pages/about.tsx:382
-msgid "Product Management"
-msgstr "Product Management"
+#~ msgid "Product Management"
+#~ msgstr "Product Management"
 
-#: src/pages/projects.$projectId.tsx:85
+#: src/pages/projects.$projectId.tsx:44
 msgid "Project not found"
 msgstr "Projet non trouvé"
 
@@ -291,11 +303,11 @@ msgstr "PROJETS"
 #~ msgid "Réponse sous 24h"
 #~ msgstr "Réponse sous 24h"
 
-#: src/components/NotFound.tsx:52
+#: src/components/NotFound.tsx:51
 msgid "Retourner à l'accueil"
 msgstr "Retourner à l'accueil"
 
-#: src/pages/projects.$projectId.tsx:237
+#: src/pages/projects.$projectId.tsx:196
 msgid "Scroll for details"
 msgstr "Défiler pour les détails"
 
@@ -304,8 +316,8 @@ msgstr "Défiler pour les détails"
 #~ msgstr "Skills"
 
 #: src/pages/about.tsx:377
-msgid "Software Design"
-msgstr "Software Design"
+#~ msgid "Software Design"
+#~ msgstr "Software Design"
 
 #: src/pages/contact.tsx:277
 #~ msgid "Sujet"
@@ -315,11 +327,11 @@ msgstr "Software Design"
 #~ msgid "Télécharger mon CV"
 #~ msgstr "Télécharger mon CV"
 
-#: src/pages/about.tsx:433
+#: src/pages/about.tsx:321
 msgid "Téléchargez une version détaillée de mon parcours professionnel."
 msgstr "Téléchargez une version détaillée de mon parcours professionnel."
 
-#: src/pages/contact.tsx:269
+#: src/pages/contact.tsx:174
 msgid "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion."
 msgstr "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion."
 
@@ -327,7 +339,7 @@ msgstr "Travailler de manière asynchrone permet une meilleure concentration et 
 #~ msgid "Travaillons ensemble"
 #~ msgstr "Travaillons ensemble"
 
-#: src/pages/contact.tsx:174
+#: src/pages/contact.tsx:74
 msgid "Travaillons ensemble."
 msgstr "Travaillons ensemble."
 
@@ -347,11 +359,11 @@ msgstr "Une sélection de travaux où l'esthétique rencontre l'ingénierie cré
 #~ msgid "View Projects"
 #~ msgstr "View Projects"
 
-#: src/pages/projects.$projectId.tsx:220
+#: src/pages/projects.$projectId.tsx:179
 msgid "Visit Website"
 msgstr "Visiter le site"
 
-#: src/pages/index.tsx:299
+#: src/pages/index.tsx:207
 msgid "Voir mes projets"
 msgstr "Voir mes projets"
 
@@ -360,13 +372,17 @@ msgstr "Voir mes projets"
 #~ msgstr "Votre message ici..."
 
 #: src/pages/about.tsx:372
-msgid "Web Design"
-msgstr "Web Design"
+#~ msgid "Web Design"
+#~ msgstr "Web Design"
 
 #: src/pages/about.tsx:392
-msgid "Webflow/Framer"
-msgstr "Webflow/Framer"
+#~ msgid "Webflow/Framer"
+#~ msgstr "Webflow/Framer"
 
 #: src/routes/index.tsx:37
 #~ msgid "Welcome to my modern portfolio built with the latest technologies. Explore my projects and skills."
 #~ msgstr "Welcome to my modern portfolio built with the latest technologies. Explore my projects and skills."
+
+#: src/pages/about.tsx:257
+msgid "Years"
+msgstr "Years"
