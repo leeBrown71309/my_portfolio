@@ -9,7 +9,7 @@ export const projectsData: Project[] = [
     name: "Wayhost",
     mainCategory: msg`Site web (Vitrine/SaaS/Design)`,
     categories: [msg`UX/UI Design`, msg`Frontend Development`],
-    description: msg`Le site Wayhost.cloud est une plateforme spécialisée dans les services d’hébergement et d’infrastructure cloud, proposant des solutions complètes comme l’hébergement web, les serveurs VPS et dédiés, l’enregistrement de domaines, ainsi que des services de stockage et de cloud privé ou hybride. Il met en avant des performances élevées, une haute disponibilité, la sécurité des données et une scalabilité adaptée aux besoins des particuliers comme des entreprises, avec un support technique dédié et des technologies modernes visant à optimiser les performances et la consommation énergétique.`,
+    description: msg`Plateforme cloud haute performance proposant des solutions d'hébergement web, VPS, serveurs dédiés et stockage sécurisé pour entreprises et particuliers.`,
     url: "https://www.wayhost.cloud/en",
     client: "Axe-tag SASS",
     year: "2025-2026",
