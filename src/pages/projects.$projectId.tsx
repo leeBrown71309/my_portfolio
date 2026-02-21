@@ -14,6 +14,8 @@ import { useLoading } from "../context/LoadingContext";
 import { ArrowLeft, ExternalLink, ChevronRight } from "lucide-react";
 
 import { MagneticChar } from "../components/Magnetic";
+import { ShimmerImage } from "../components/ShimmerImage";
+import { useState } from "react";
 
 export const Route = createFileRoute("/projects/$projectId")({
   component: ProjectDetailsPage,
@@ -25,6 +27,7 @@ function ProjectDetailsPage() {
   const { isLoading } = useLoading();
   const project = (projectsData as Project[]).find((p) => p.id === projectId);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [bannerLoaded, setBannerLoaded] = useState(false);
 
   const { scrollY } = useScroll();
   const { scrollYProgress } = useScroll({
@@ -119,7 +122,7 @@ function ProjectDetailsPage() {
                   <ArrowLeft size={18} />
                 </div>
               </Link>
-              <div className="text-[10px] lg:mr-10 font-mono uppercase tracking-[0.5em] opacity-40">
+              <div className="text-[10px] max-w-44 md:max-w-full lg:mr-10 font-mono uppercase tracking-[0.5em] opacity-40">
                 {project.year} / {i18n._(project.mainCategory as any)}
               </div>
             </motion.nav>
@@ -134,11 +137,26 @@ function ProjectDetailsPage() {
                 }}
                 className="absolute inset-0 z-0 will-change-transform"
               >
-                <div
-                  className="w-full h-full bg-cover bg-center transition-all duration-[2s]"
-                  style={{ backgroundImage: `url(${project.banner})` }}
+                {!bannerLoaded && (
+                  <div className="absolute inset-0 z-10 shimmer bg-white/10" />
+                )}
+                <motion.img
+                  src={project.banner}
+                  alt={project.name}
+                  onLoad={() => {
+                    // Simulation delay for the user to see the shimmer
+                    setTimeout(() => setBannerLoaded(true), 1500);
+                  }}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{
+                    opacity: bannerLoaded ? 1 : 0,
+                    scale: bannerLoaded ? 1 : 1.1,
+                  }}
+                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#070b14]/20 to-[#070b14]" />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-linear-to-b from-black/20 via-[#070b14]/60 to-[#070b14] backdrop-blur-[2px]" />
               </motion.div>
 
               <div className="relative z-10 max-w-7xl md:mt-20">
@@ -150,7 +168,7 @@ function ProjectDetailsPage() {
                 </motion.span>
                 <motion.h1
                   variants={itemVariants}
-                  className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-eight tracking-tighter leading-[0.85] uppercase mb-8 md:mb-12 flex flex-wrap gap-x-[0.1em]"
+                  className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-eight tracking-tighter leading-[0.85] uppercase mb-8 md:mb-12 flex flex-wrap gap-x-[0.1em] drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
                 >
                   {project.name.split(" ").map((word, wordIdx) => (
                     <span key={wordIdx} className="flex whitespace-nowrap">
@@ -164,7 +182,7 @@ function ProjectDetailsPage() {
                 <div className="flex flex-col lg:flex-row gap-8 md:gap-16 md:items-end">
                   <motion.p
                     variants={itemVariants}
-                    className="text-xl md:text-3xl font-dm-sans text-white/60 max-w-2xl leading-tight"
+                    className="text-xl md:text-3xl font-dm-sans text-white max-w-2xl leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
                   >
                     {i18n._(project.description as any)}
                   </motion.p>
@@ -299,31 +317,28 @@ function ProjectDetailsPage() {
 
                     <div className="flex flex-col gap-16 md:gap-32 items-center w-full">
                       {section.images.map((img, imgIdx) => (
-                        <motion.div
+                        <div
                           key={imgIdx}
-                          initial={{ opacity: 0, y: 30 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-100px" }}
-                          transition={{
-                            duration: 0.6,
-                            ease: "easeOut",
-                          }}
+                          data-aos="fade-up"
+                          data-aos-duration="1200"
+                          data-aos-offset="100"
                           className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-4xl border border-white/5 bg-neutral-950 group shadow-2xl"
                         >
-                          <motion.img
+                          <ShimmerImage
                             src={img}
                             alt={`${i18n._(section.title as any)} ${imgIdx + 1}`}
-                            className="w-full h-auto object-cover"
-                            whileHover={{ scale: 1.02 }}
+                            className="w-full h-auto aspect-video"
+                            simulateDelay={1000 + imgIdx * 200}
+                            whileHover={{ scale: 1.05 }}
                             transition={{
-                              duration: 0.8,
-                              ease: "easeOut",
+                              duration: 1.5,
+                              ease: [0.22, 1, 0.36, 1],
                             }}
                           />
-                          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                           <div className="absolute inset-0 border border-white/5 rounded-4xl pointer-events-none transition-all duration-700 group-hover:border-primary-500/20" />
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </div>
