@@ -144,7 +144,7 @@ function App() {
             <motion.div variants={itemVariants} className="mb-8 md:mb-12">
               <span className="text-primary-500 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] md:tracking-[0.5em] block">
                 <Trans>
-                  Based in Dakar | Front-end Developer | UI/UX Designer
+                  Situé à Dakar | Développeur Full-stack | UI/UX Designer
                 </Trans>
               </span>
             </motion.div>
@@ -190,7 +190,7 @@ function App() {
               <p className="text-white/40 font-dm-sans text-base md:text-2xl leading-relaxed">
                 <span className="text-white/80">Designer graphique</span>,
                 {" UX/UI designer "}
-                <span className="text-white/80">& développeur front-end</span>.
+                <span className="text-white/80">& développeur full-stack</span>.
                 <Trans>
                   {" "}
                   Je sculpte des interfaces numériques où l'esthétique rencontre
@@ -225,7 +225,7 @@ function App() {
               </span>
               <span className="text-primary-500/80 animate-pulse flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-current" />
-                <Trans>Available for projects</Trans>
+                <Trans>Disponible pour les projets</Trans>
               </span>
             </div>
           </motion.main>

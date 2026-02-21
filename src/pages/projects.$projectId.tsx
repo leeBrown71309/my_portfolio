@@ -209,7 +209,7 @@ function ProjectDetailsPage() {
                   className="flex flex-col gap-4"
                 >
                   <span className="text-[10px] font-mono text-primary-500 uppercase tracking-widest">
-                    Client
+                    <Trans>Client</Trans>
                   </span>
                   <span className="text-xl md:text-2xl font-eight uppercase">
                     {project.client}
@@ -221,11 +221,18 @@ function ProjectDetailsPage() {
                   className="flex flex-col gap-4"
                 >
                   <span className="text-[10px] font-mono text-primary-500 uppercase tracking-widest">
-                    Role
+                    <Trans>Rôle & Responsabilité</Trans>
                   </span>
-                  <span className="text-xl md:text-2xl font-eight uppercase">
-                    {i18n._(project.role.role as any)}
-                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-xl md:text-2xl font-eight uppercase">
+                      {i18n._(project.role.role as any)}
+                    </span>
+                    {project.role.responsibility && (
+                      <span className="text-sm font-dm-sans text-white/50 leading-relaxed pr-4">
+                        {i18n._(project.role.responsibility as any)}
+                      </span>
+                    )}
+                  </div>
                 </motion.div>
 
                 <motion.div
@@ -233,7 +240,7 @@ function ProjectDetailsPage() {
                   className="flex flex-col gap-4"
                 >
                   <span className="text-[10px] font-mono text-primary-500 uppercase tracking-widest">
-                    Year
+                    <Trans>Année</Trans>
                   </span>
                   <span className="text-xl md:text-2xl font-eight uppercase">
                     {project.year}
@@ -245,7 +252,7 @@ function ProjectDetailsPage() {
                   className="flex flex-col gap-4"
                 >
                   <span className="text-[10px] font-mono text-primary-500 uppercase tracking-widest">
-                    Tech
+                    <Trans>Technologies</Trans>
                   </span>
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.technologies.map((tech) => (

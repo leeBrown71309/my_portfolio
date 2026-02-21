@@ -106,7 +106,7 @@ function ProjectsPage() {
                 <div className="absolute top-6 left-6 flex items-center gap-3">
                   <div className="w-8 h-px bg-primary-500" />
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase">
-                    Project Preview
+                    Aperçu du projet
                   </span>
                 </div>
 
@@ -142,7 +142,7 @@ function ProjectsPage() {
               <div className="pt-32 md:pt-48 pb-12 px-8 lg:px-16 shrink-0">
                 <motion.div variants={itemVariants}>
                   <span className="text-primary-500 font-mono text-[10px] uppercase tracking-[0.4em] block mb-2">
-                    <Trans>Portfolio Selection</Trans>
+                    <Trans>Sélection de projets</Trans>
                   </span>
                   <h1 className="text-white text-5xl lg:text-[7rem] font-eight tracking-tight leading-none mb-4 uppercase flex items-start gap-4">
                     <Trans>PROJETS</Trans>
@@ -235,7 +235,7 @@ function ProjectsPage() {
             {/* Decorative Navigation Element */}
             <div className="absolute bottom-8 left-8 items-center gap-6 z-20 pointer-events-none opacity-20 hidden md:flex">
               <span className="text-[9px] font-mono uppercase tracking-[0.5em] text-white vertical-text">
-                Scroll to explore
+                <Trans>Faire défiler pour explorer</Trans>
               </span>
               <div className="w-px h-24 bg-linear-to-b from-primary-500 to-transparent" />
             </div>

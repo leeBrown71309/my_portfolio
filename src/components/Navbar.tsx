@@ -294,7 +294,7 @@ export function Navbar() {
             >
               <div className="hidden md:flex flex-col items-center md:items-start gap-2">
                 <span className="text-primary-500/50 text-xs font-mono uppercase tracking-widest">
-                  <Trans> Local Time</Trans>
+                  <Trans> Heure locale</Trans>
                 </span>
                 <span className="text-white font-eight text-lg">
                   {new Date().toLocaleTimeString("fr-FR", {
@@ -306,13 +306,13 @@ export function Navbar() {
 
               <div className="flex flex-col items-center md:items-end gap-2">
                 <span className="text-primary-500/50 text-xs font-mono uppercase tracking-widest">
-                  <Trans> Get in touch</Trans>
+                  <Trans> Contactez-moi</Trans>
                 </span>
                 <a
-                  href="mailto:hello@leeeight.com"
+                  href="mailto:leeeight71@gmail.com"
                   className="text-white hover:text-primary-500 font-eight text-lg transition-colors"
                 >
-                  hello@leeeight.com
+                  leeeight71@gmail.com
                 </a>
               </div>
             </motion.div>

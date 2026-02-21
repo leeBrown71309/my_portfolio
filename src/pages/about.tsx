@@ -201,7 +201,7 @@ function AboutPage() {
             <div className="relative h-full aspect-4/5 lg:aspect-auto group overflow-hidden rounded-[2.5rem] border border-white/10">
               <div className="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition-colors duration-700 z-10" />
               <img
-                src="/images/about-me.webp"
+                src="/images/me.webp"
                 alt="Lee Makosso"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                 onError={(e) => {
@@ -214,21 +214,10 @@ function AboutPage() {
                   <span className="text-white font-eight text-2xl uppercase">
                     Lee Makosso
                   </span>
-                  <span className="text-primary-400 font-mono text-[10px] tracking-widest uppercase">
-                    <Trans>Creative Director</Trans>
+                  <span className="text-white font-bold text-[10px] tracking-widest uppercase">
+                    <Trans>Développeur full-stack</Trans>
                   </span>
                 </div>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center backdrop-blur-md"
-                >
-                  <Sparkles className="w-5 h-5 text-white/50" />
-                </motion.div>
               </div>
             </div>
           </motion.div>
