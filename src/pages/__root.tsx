@@ -4,6 +4,7 @@ import {
   Scripts,
   createRootRoute,
 } from "@tanstack/react-router";
+import { msg, Trans } from "@lingui/macro";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "../i18n";
@@ -29,22 +30,24 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "LEEEIGHT. | Creative Developer Portfolio",
+        title: i18n._(msg`LEEEIGHT. | Portfolio de Développeur Créatif`),
       },
       {
         name: "description",
-        content:
-          "Portfolio professionnel d'un développeur créatif spécialisé en React, TanStack et animations haut de gamme.",
+        content: i18n._(
+          msg`Portfolio professionnel d'un développeur créatif spécialisé en React, TanStack et animations haut de gamme.`,
+        ),
       },
       // Social Meta
       {
         property: "og:title",
-        content: "LEEEIGHT. | Creative Developer Portfolio",
+        content: i18n._(msg`LEEEIGHT. | Portfolio de Développeur Créatif`),
       },
       {
         property: "og:description",
-        content:
-          "Experience next-gen web development with premium aesthetics and performance.",
+        content: i18n._(
+          msg`Découvrez le développement web de nouvelle génération avec une esthétique et des performances premium.`,
+        ),
       },
       { property: "og:type", content: "website" },
     ],

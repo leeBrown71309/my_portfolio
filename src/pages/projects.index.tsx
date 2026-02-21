@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Trans } from "@lingui/macro";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import projectsData from "../data/projects.json";
-import { Project } from "../types/project";
+import { useLingui } from "@lingui/react";
+import { projectsData } from "../data/projects";
+import type { Project } from "../types/project";
 import { useLoading } from "../context/LoadingContext";
 
 export const Route = createFileRoute("/projects/")({
@@ -11,6 +12,7 @@ export const Route = createFileRoute("/projects/")({
 });
 
 function ProjectsPage() {
+  const { i18n } = useLingui();
   const { isLoading } = useLoading();
   const projects = projectsData as Project[];
   const [hoveredProject, setHoveredProject] = useState<Project | null>(
@@ -63,7 +65,7 @@ function ProjectsPage() {
               ))}
             </div>
 
-            {/* Left Side: Dynamic Banner Image */}
+            {/* Left Side: Dynamic preview Image */}
             <div className="hidden md:flex w-1/2 h-full items-center justify-center pt-48 pb-12 px-12 lg:px-24 relative z-10 border-r border-white/5">
               <Link
                 to="/projects/$projectId"
@@ -82,11 +84,11 @@ function ProjectsPage() {
                     }}
                     className="absolute inset-0 w-full h-full"
                   >
-                    {hoveredProject?.banner ? (
+                    {hoveredProject?.preview ? (
                       <div
                         className="w-full h-full bg-cover bg-center transition-transform duration-[2s] group-hover:scale-110"
                         style={{
-                          backgroundImage: `url(${hoveredProject.banner})`,
+                          backgroundImage: `url(${hoveredProject.preview})`,
                         }}
                         aria-label={hoveredProject.name}
                       >
@@ -104,7 +106,7 @@ function ProjectsPage() {
                 <div className="absolute top-6 left-6 flex items-center gap-3">
                   <div className="w-8 h-px bg-primary-500" />
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase">
-                    Project Preview
+                    <Trans>Aperçu du projet</Trans>
                   </span>
                 </div>
 
@@ -116,7 +118,8 @@ function ProjectsPage() {
                     className="flex flex-col"
                   >
                     <span className="text-primary-500 font-mono text-[10px] uppercase tracking-widest mb-1">
-                      {hoveredProject?.mainCategory}
+                      {hoveredProject &&
+                        i18n._(hoveredProject.mainCategory as any)}
                     </span>
                     <span className="text-white/40 font-mono text-[9px] uppercase tracking-widest">
                       {hoveredProject?.year}
@@ -139,7 +142,7 @@ function ProjectsPage() {
               <div className="pt-32 md:pt-48 pb-12 px-8 lg:px-16 shrink-0">
                 <motion.div variants={itemVariants}>
                   <span className="text-primary-500 font-mono text-[10px] uppercase tracking-[0.4em] block mb-2">
-                    <Trans>Portfolio Selection</Trans>
+                    <Trans>Sélection de projets</Trans>
                   </span>
                   <h1 className="text-white text-5xl lg:text-[7rem] font-eight tracking-tight leading-none mb-4 uppercase flex items-start gap-4">
                     <Trans>PROJETS</Trans>
@@ -212,7 +215,7 @@ function ProjectsPage() {
 
                         <div className="flex gap-4 items-center transition-all duration-500 group-hover:translate-x-6 opacity-40 group-hover:opacity-100">
                           <span className="text-[10px] uppercase font-mono tracking-widest text-primary-500">
-                            {project.mainCategory}
+                            {i18n._(project.mainCategory as any)}
                           </span>
                           <div className="w-1 h-1 rounded-full bg-white/20" />
                           <span className="text-[10px] uppercase font-mono tracking-widest text-white/40">
@@ -232,7 +235,7 @@ function ProjectsPage() {
             {/* Decorative Navigation Element */}
             <div className="absolute bottom-8 left-8 items-center gap-6 z-20 pointer-events-none opacity-20 hidden md:flex">
               <span className="text-[9px] font-mono uppercase tracking-[0.5em] text-white vertical-text">
-                Scroll to explore
+                <Trans>Faire défiler pour explorer</Trans>
               </span>
               <div className="w-px h-24 bg-linear-to-b from-primary-500 to-transparent" />
             </div>
