@@ -21,7 +21,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="fixed left-5 top-1/2 -translate-y-1/2 z-150 ">
+    <div className="fixed right-5 top-1/2 -translate-y-1/2 z-160 ">
       <motion.div
         animate={{
           height: isExpanded ? "108px" : "36px",

@@ -19,6 +19,7 @@ import { useRef } from "react";
 import { useLoading } from "../context/LoadingContext";
 import { aboutData } from "../data/about";
 import { MagneticChar, MagneticCard } from "../components/Magnetic";
+import { ShimmerImage } from "../components/ShimmerImage";
 
 const AnimatedCreativeIcon = () => (
   <motion.svg
@@ -193,21 +194,18 @@ function AboutPage() {
             </MagneticCard>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isLoading ? { opacity: 0 } : { opacity: 1, scale: 1 }}
-            className="lg:col-span-4"
-          >
-            <div className="relative h-full aspect-4/5 lg:aspect-auto group overflow-hidden rounded-[2.5rem] border border-white/10">
+          <div className="lg:col-span-4">
+            <div
+              data-aos="zoom-out-up"
+              data-aos-duration="1500"
+              className="relative h-full aspect-4/5 lg:aspect-auto group overflow-hidden rounded-[2.5rem] border border-white/10"
+            >
               <div className="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition-colors duration-700 z-10" />
-              <img
+              <ShimmerImage
                 src="/images/me.webp"
                 alt="Lee Makosso"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop";
-                }}
+                simulateDelay={1200}
+                className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
               />
               <div className="absolute bottom-8 left-8 right-8 z-20 flex justify-between items-end">
                 <div className="flex flex-col">
@@ -220,7 +218,7 @@ function AboutPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* SECTION 2: BENTO GRID EXPERIENCE */}

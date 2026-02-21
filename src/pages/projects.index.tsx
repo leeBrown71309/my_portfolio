@@ -6,6 +6,7 @@ import { useLingui } from "@lingui/react";
 import { projectsData } from "../data/projects";
 import type { Project } from "../types/project";
 import { useLoading } from "../context/LoadingContext";
+import { ShimmerImage } from "../components/ShimmerImage";
 
 export const Route = createFileRoute("/projects/")({
   component: ProjectsPage,
@@ -67,74 +68,82 @@ function ProjectsPage() {
 
             {/* Left Side: Dynamic preview Image */}
             <div className="hidden md:flex w-1/2 h-full items-center justify-center pt-48 pb-12 px-12 lg:px-24 relative z-10 border-r border-white/5">
-              <Link
-                to="/projects/$projectId"
-                params={{ projectId: hoveredProject?.id || "" }}
+              <div
+                data-aos="zoom-in-right"
+                data-aos-duration="1200"
                 className="relative w-full aspect-4/5 max-h-70vh group overflow-hidden bg-neutral-900/50 rounded-lg cursor-pointer"
               >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={hoveredProject?.id || "empty"}
-                    initial={{ scale: 1.1, opacity: 0, filter: "blur(20px)" }}
-                    animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-                    exit={{ scale: 0.95, opacity: 0, filter: "blur(20px)" }}
-                    transition={{
-                      duration: 0.7,
-                      ease: [0.22, 1, 0.36, 1] as any,
-                    }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    {hoveredProject?.preview ? (
-                      <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-[2s] group-hover:scale-110"
-                        style={{
-                          backgroundImage: `url(${hoveredProject.preview})`,
-                        }}
-                        aria-label={hoveredProject.name}
-                      >
-                        <div className="absolute inset-0 bg-linear-to-t from-[#070b14]/80 via-transparent to-transparent opacity-60" />
-                      </div>
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-white/10 font-eight text-4xl italic">
-                        IMAGE
-                      </div>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+                <Link
+                  to="/projects/$projectId"
+                  params={{ projectId: hoveredProject?.id || "" }}
+                  className="block w-full h-full"
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={hoveredProject?.id || "empty"}
+                      initial={{ scale: 1.1, opacity: 0, filter: "blur(20px)" }}
+                      animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+                      exit={{ scale: 0.95, opacity: 0, filter: "blur(20px)" }}
+                      transition={{
+                        duration: 0.7,
+                        ease: [0.22, 1, 0.36, 1] as any,
+                      }}
+                      className="absolute inset-0 w-full h-full"
+                    >
+                      {hoveredProject?.preview ? (
+                        <ShimmerImage
+                          src={hoveredProject.preview}
+                          alt={hoveredProject.name}
+                          className="w-full h-full"
+                          simulateDelay={800}
+                          transition={{
+                            duration: 1.2,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-white/10 font-eight text-4xl italic">
+                          IMAGE
+                        </div>
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
 
-                {/* Decorative elements on the image box */}
-                <div className="absolute top-6 left-6 flex items-center gap-3">
-                  <div className="w-8 h-px bg-primary-500" />
-                  <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase">
-                    <Trans>Aperçu du projet</Trans>
-                  </span>
-                </div>
-
-                <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
-                  <motion.div
-                    key={hoveredProject?.id}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    className="flex flex-col"
-                  >
-                    <span className="text-primary-500 font-mono text-[10px] uppercase tracking-widest mb-1">
-                      {hoveredProject &&
-                        i18n._(hoveredProject.mainCategory as any)}
+                  {/* Decorative elements on the image box */}
+                  <div className="absolute top-6 left-6 flex items-center gap-3">
+                    <div className="w-8 h-px bg-primary-500" />
+                    <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase">
+                      <Trans>Aperçu du projet</Trans>
                     </span>
-                    <span className="text-white/40 font-mono text-[9px] uppercase tracking-widest">
-                      {hoveredProject?.year}
-                    </span>
-                  </motion.div>
-                  <div className="text-white/20 font-eight text-6xl">
-                    {projects.findIndex((p) => p.id === hoveredProject?.id) +
-                      1 <
-                    10
-                      ? `0${projects.findIndex((p) => p.id === hoveredProject?.id) + 1}`
-                      : projects.findIndex((p) => p.id === hoveredProject?.id) +
-                        1}
                   </div>
-                </div>
-              </Link>
+
+                  <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
+                    <motion.div
+                      key={hoveredProject?.id}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      className="flex flex-col"
+                    >
+                      <span className="text-primary-500 font-mono text-[10px] uppercase tracking-widest mb-1">
+                        {hoveredProject &&
+                          i18n._(hoveredProject.mainCategory as any)}
+                      </span>
+                      <span className="text-white/40 font-mono text-[9px] uppercase tracking-widest">
+                        {hoveredProject?.year}
+                      </span>
+                    </motion.div>
+                    <div className="text-white/20 font-eight text-6xl">
+                      {projects.findIndex((p) => p.id === hoveredProject?.id) +
+                        1 <
+                      10
+                        ? `0${projects.findIndex((p) => p.id === hoveredProject?.id) + 1}`
+                        : projects.findIndex(
+                            (p) => p.id === hoveredProject?.id,
+                          ) + 1}
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Right Side: Scrollable Project List */}
