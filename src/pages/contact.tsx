@@ -49,13 +49,13 @@ function ContactPage() {
           style={{ x: bigTextX }}
           className="text-[25vw] font-eight leading-none whitespace-nowrap text-white/5"
         >
-          CONTACT CONTACT CONTACT
+          <Trans>CONTACT CONTACT CONTACT</Trans>
         </motion.div>
         <motion.div
           style={{ x: bigTextX2 }}
           className="text-[25vw] font-eight leading-none whitespace-nowrap self-end text-white/5"
         >
-          LET'S TALK LET'S TALK LET'S TALK
+          <Trans>PARLONS-EN PARLONS-EN PARLONS-EN</Trans>
         </motion.div>
       </div>
 
@@ -67,7 +67,7 @@ function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             className="text-primary-500 font-mono text-[10px] uppercase tracking-[0.6em] mb-8 block"
           >
-            <Trans>GET IN TOUCH</Trans>
+            <Trans>ME CONTACTER</Trans>
           </motion.span>
           <h1 className="text-7xl md:text-[12rem] font-eight text-white tracking-tighter leading-[0.75] mb-12 flex flex-wrap gap-x-[0.2em]">
             {i18n

@@ -19,43 +19,51 @@ export interface AboutData {
 export const aboutData: AboutData = {
   skills: [
     {
-      category: msg`Web Foundation`,
-      items: ["HTML", "CSS", "Tailwind CSS", "Bootstrap"]
+      category: msg`Fondamentaux Web`,
+      items: ["HTML", "CSS", "Tailwind CSS", "Bootstrap"],
     },
     {
-      category: msg`Languages`,
-      items: ["JavaScript", "TypeScript", "PHP", "Python", "Dart", "Java", "C"]
+      category: msg`Langages`,
+      items: ["JavaScript", "TypeScript", "PHP", "Python", "Dart", "Java", "C"],
     },
     {
       category: msg`Frameworks`,
-      items: ["React.js", "Next.js", "Vue.js", "Nuxt.js", "Nest.js", "Flutter", "React Native", "Angular"]
+      items: [
+        "React.js",
+        "Next.js",
+        "Vue.js",
+        "Nuxt.js",
+        "Nest.js",
+        "Flutter",
+        "React Native",
+        "Angular",
+      ],
     },
     {
-      category: msg`Architecture & Data`,
-      items: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Supabase", "UML"]
+      category: msg`Architecture & Données`,
+      items: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Supabase", "UML"],
     },
     {
-      category: msg`Tools & CMS`,
-      items: ["Figma", "Git", "GitHub", "GitLab", "WordPress"]
-    }
+      category: msg`Outils & CMS`,
+      items: ["Figma", "Git", "GitHub", "GitLab", "WordPress"],
+    },
   ],
   expertise: [
     {
-      label: msg`Front-end Dev`,
-      years: msg`5 Years`
+      label: msg`Dév Front-end`,
+      years: msg`5 ans`,
     },
     {
-      label: msg`Back-end Dev`,
-      years: msg`2 Years`
+      label: msg`Dév Back-end`,
+      years: msg`2 ans`,
     },
     {
-      label: msg`Mobile Dev`,
-      years: msg`3 Years`
+      label: msg`Dév Mobile`,
+      years: msg`3 ans`,
     },
     {
-      label: msg`UI/UX Design`,
-      years: msg`3 Years`
+      label: msg`Design UI/UX`,
+      years: msg`3 ans`,
     },
-  ]
+  ],
 };
-

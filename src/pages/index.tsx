@@ -188,9 +188,14 @@ function App() {
               className="max-w-2xl md:max-w-3xl mb-12 md:mb-16 px-4"
             >
               <p className="text-white/40 font-dm-sans text-base md:text-2xl leading-relaxed">
-                <span className="text-white/80">Designer graphique</span>,
-                {" UX/UI designer "}
-                <span className="text-white/80">& développeur full-stack</span>.
+                <span className="text-white/80">
+                  <Trans>Designer graphique</Trans>
+                </span>
+                , <Trans>UX/UI designer</Trans>{" "}
+                <span className="text-white/80">
+                  <Trans>& développeur full-stack</Trans>
+                </span>
+                .
                 <Trans>
                   {" "}
                   Je sculpte des interfaces numériques où l'esthétique rencontre
@@ -221,7 +226,7 @@ function App() {
 
             <div className="hidden lg:flex absolute right-8 bottom-8 flex-col items-end gap-1 text-[9px] font-mono tracking-widest text-white/10 uppercase font-bold">
               <span className="text-white/20 lowercase font-normal italic">
-                Status
+                <Trans>Statut</Trans>
               </span>
               <span className="text-primary-500/80 animate-pulse flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-current" />

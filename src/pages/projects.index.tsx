@@ -106,7 +106,7 @@ function ProjectsPage() {
                 <div className="absolute top-6 left-6 flex items-center gap-3">
                   <div className="w-8 h-px bg-primary-500" />
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase">
-                    Aperçu du projet
+                    <Trans>Aperçu du projet</Trans>
                   </span>
                 </div>
 

@@ -43,7 +43,7 @@ function ProjectDetailsPage() {
   if (!project) {
     return (
       <div className="h-screen w-full flex items-center justify-center bg-[#070b14] text-white">
-        <Trans>Project not found</Trans>
+        <Trans>Projet non trouvé</Trans>
       </div>
     );
   }
@@ -178,7 +178,7 @@ function ProjectDetailsPage() {
                         className="w-full lg:w-auto group flex items-center justify-center gap-6 py-6 px-10 rounded-full border border-white/10 hover:border-primary-500 transition-colors"
                       >
                         <span className="font-eight text-sm uppercase tracking-widest group-hover:text-primary-500 transition-colors">
-                          <Trans>Visit Website</Trans>
+                          <Trans>Voir le site</Trans>
                         </span>
                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-all duration-500">
                           <ExternalLink size={20} />
@@ -195,7 +195,7 @@ function ProjectDetailsPage() {
                 className="absolute bottom-12 right-12 hidden md:flex flex-col items-center gap-6 text-white/40"
               >
                 <span className="text-[9px] font-mono uppercase tracking-[0.5em] vertical-text">
-                  <Trans>Scroll for details</Trans>
+                  <Trans>Défiler pour plus de détails</Trans>
                 </span>
                 <div className="w-px h-24 bg-linear-to-b from-white to-transparent" />
               </motion.div>
@@ -340,7 +340,7 @@ function ProjectDetailsPage() {
                 className="relative h-screen flex flex-col items-center justify-center p-8 border-t border-white/5"
               >
                 <span className="text-[10px] font-mono text-primary-500 uppercase tracking-[1em] mb-12">
-                  <Trans>Next Project</Trans>
+                  <Trans>Projet Suivant</Trans>
                 </span>
 
                 <Link

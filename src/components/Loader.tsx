@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Trans } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useLoading } from "../context/LoadingContext";
 
@@ -112,7 +113,7 @@ export function Loader() {
               className="mt-4 flex flex-col items-center gap-1"
             >
               <span className="text-primary-500 font-mono text-xs tracking-[0.2em] font-bold uppercase">
-                Loading Experience
+                <Trans>Chargement de l'expérience</Trans>
               </span>
               <span className="text-white/40 font-eight text-sm tabular-nums">
                 {Math.round(progress)}%

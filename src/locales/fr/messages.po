@@ -13,187 +13,240 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/Navbar.tsx:309
-msgid " Get in touch"
-msgstr " Get in touch"
+#. js-lingui-explicit-id
+#: src/data/projects.ts:43
+#: src/data/projects.ts:131
+#: src/data/projects.ts:181
+msgid "/+Z5u4"
+msgstr "/+Z5u4"
 
-#: src/pages/index.tsx:194
+#: src/components/Navbar.tsx:309
+msgid " Contactez-moi"
+msgstr " Contactez-moi"
+
+#: src/components/Navbar.tsx:297
+msgid " Heure locale"
+msgstr " Heure locale"
+
+#: src/pages/index.tsx:199
 msgid " Je sculpte des interfaces numériques où l'esthétique rencontre la performance."
 msgstr " Je sculpte des interfaces numériques où l'esthétique rencontre la performance."
 
-#: src/components/Navbar.tsx:297
-msgid " Local Time"
-msgstr " Local Time"
+#: src/pages/index.tsx:196
+msgid "& développeur full-stack"
+msgstr "& développeur full-stack"
 
-#: src/pages/index.tsx:78
-#~ msgid "<0>15+</0> projets réussis avec succès"
-#~ msgstr "<0>15+</0> projets réussis avec succès"
+#: src/data/about.ts:58
+msgid "2 ans"
+msgstr "2 ans"
 
-#: src/pages/about.tsx:135
-#~ msgid "10 ans en Design de Logiciels"
-#~ msgstr "10 ans en Design de Logiciels"
+#: src/data/about.ts:62
+#: src/data/about.ts:66
+msgid "3 ans"
+msgstr "3 ans"
 
-#: src/pages/about.tsx:131
-#~ msgid "12 ans en Design Web"
-#~ msgstr "12 ans en Design Web"
-
-#: src/pages/about.tsx:182
-msgid "15 ans à l'intersection du design et de la technologie. Je ne construis pas seulement des interfaces, je crée des écosystèmes émotionnels."
-msgstr "15 ans à l'intersection du design et de la technologie. Je ne construis pas seulement des interfaces, je crée des écosystèmes émotionnels."
-
-#: src/pages/about.tsx:119
-#~ msgid "15 ans d'expérience en Design Digital, Développement Web et Publicité"
-#~ msgstr "15 ans d'expérience en Design Digital, Développement Web et Publicité"
-
-#: src/pages/about.tsx:139
-#~ msgid "3 ans en Développement Front-end"
-#~ msgstr "3 ans en Développement Front-end"
+#: src/data/about.ts:54
+msgid "5 ans"
+msgstr "5 ans"
 
 #: src/components/Navbar.tsx:178
 msgid "À propos"
 msgstr "À propos"
 
+#: src/data/projects.ts:247
+msgid "Accessible sur tout les appareils"
+msgstr "Accessible sur tout les appareils"
+
 #: src/components/Navbar.tsx:176
 msgid "Accueil"
 msgstr "Accueil"
 
-#: src/pages/about.tsx:267
-#~ msgid "An d'expérience"
-#~ msgstr "An d'expérience"
+#: src/pages/projects.$projectId.tsx:243
+msgid "Année"
+msgstr "Année"
 
-#: src/pages/index.tsx:228
-msgid "Available for projects"
-msgstr "Available for projects"
+#: src/pages/about.tsx:327
+msgid "ANS"
+msgstr "ANS"
 
-#: src/pages/projects.$projectId.tsx:97
-#~ msgid "Back to selection"
-#~ msgstr "Retour à la sélection"
+#: src/pages/projects.index.tsx:109
+msgid "Aperçu du projet"
+msgstr "Aperçu du projet"
 
-#: src/pages/index.tsx:240
-#~ msgid "Based in Dakar | Front-end Developer"
-#~ msgstr "Based in Dakar | Front-end Developer"
+#: src/data/about.ts:43
+msgid "Architecture & Données"
+msgstr "Architecture & Données"
 
-#: src/pages/index.tsx:146
-msgid "Based in Dakar | Front-end Developer | UI/UX Designer"
-msgstr "Based in Dakar | Front-end Developer | UI/UX Designer"
+#: src/data/projects.ts:156
+msgid ""
+"AXMARIL est une solution de gestion sécurisée des secrets conçue pour les entreprises et les particuliers, permettant de stocker, protéger et partager des données sensibles (identifiants, clés, fichiers) dans des coffres-forts numériques. La plateforme met l’accent sur la simplicité d’utilisation, le contrôle des accès et la traçabilité, afin de renforcer la sécurité des systèmes tout en facilitant la collaboration entre utilisateurs et équipes.\n"
+""
+msgstr ""
+"AXMARIL est une solution de gestion sécurisée des secrets conçue pour les entreprises et les particuliers, permettant de stocker, protéger et partager des données sensibles (identifiants, clés, fichiers) dans des coffres-forts numériques. La plateforme met l’accent sur la simplicité d’utilisation, le contrôle des accès et la traçabilité, afin de renforcer la sécurité des systèmes tout en facilitant la collaboration entre utilisateurs et équipes.\n"
+""
 
-#: src/pages/index.tsx:40
-#~ msgid "Bienvenue dans mon"
-#~ msgstr "Bienvenue dans mon"
+#: src/components/Loader.tsx:116
+msgid "Chargement de l'expérience"
+msgstr "Chargement de l'expérience"
 
-#: src/pages/index.tsx:189
-#~ msgid "Clean Code"
-#~ msgstr "Clean Code"
+#: src/pages/projects.$projectId.tsx:212
+msgid "Client"
+msgstr "Client"
 
-#: src/pages/about.tsx:337
-#~ msgid "COMPÉTENCES"
-#~ msgstr "COMPÉTENCES"
+#: src/pages/about.tsx:251
+msgid "Compétences Clés"
+msgstr "Compétences Clés"
+
+#: src/data/projects.ts:18
+msgid "Conception et développement de l'interface du site web/tableau de bord, mise en place des tests unitaires et d'intégration API."
+msgstr "Conception et développement de l'interface du site web/tableau de bord, mise en place des tests unitaires et d'intégration API."
+
+#: src/data/projects.ts:234
+msgid "Concevoir un plateforme simple de vente en ligne de produits et services."
+msgstr "Concevoir un plateforme simple de vente en ligne de produits et services."
 
 #: src/components/Navbar.tsx:179
 msgid "Contact"
 msgstr "Contact"
 
-#: src/routes/index.tsx:52
-#~ msgid "Contact Me"
-#~ msgstr "Contact Me"
+#: src/pages/contact.tsx:52
+msgid "CONTACT CONTACT CONTACT"
+msgstr "CONTACT CONTACT CONTACT"
 
-#: src/components/Navbar.tsx:213
-#~ msgid "CONTACT ME"
-#~ msgstr "CONTACT ME"
+#: src/pages/about.tsx:130
+msgid "CRÉATIF CRÉATIF CRÉATIF"
+msgstr "CRÉATIF CRÉATIF CRÉATIF"
 
-#: src/pages/about.tsx:214
-msgid "Creative Director"
-msgstr "Creative Director"
+#: src/data/projects.ts:205
+msgid "Créer une interface utilisateur élégante et intuitive pour une agence spécialisée dans l’organisation et la décoration d’événementielles."
+msgstr "Créer une interface utilisateur élégante et intuitive pour une agence spécialisée dans l’organisation et la décoration d’événementielles."
 
-#: src/pages/about.tsx:283
-#~ msgid "Créativité alimentée par la précision."
-#~ msgstr "Créativité alimentée par la précision."
+#: src/data/projects.ts:176
+msgid "Créez, modifiez et partagez à votre équipe ou vos proches des données sensibles de manière sécurisée."
+msgstr "Créez, modifiez et partagez à votre équipe ou vos proches des données sensibles de manière sécurisée."
 
-#: src/pages/about.tsx:318
+#: src/pages/about.tsx:361
 msgid "Curriculum Vitae"
 msgstr "Curriculum Vitae"
 
-#: src/pages/contact.tsx:279
-#~ msgid "De quoi voulez-vous parler ?"
-#~ msgstr "De quoi voulez-vous parler ?"
+#: src/pages/__root.tsx:49
+msgid "Découvrez le développement web de nouvelle génération avec une esthétique et des performances premium."
+msgstr "Découvrez le développement web de nouvelle génération avec une esthétique et des performances premium."
 
-#: src/pages/about.tsx:162
+#: src/pages/projects.$projectId.tsx:198
+msgid "Défiler pour plus de détails"
+msgstr "Défiler pour plus de détails"
+
+#: src/pages/about.tsx:164
 msgid "DÉFINITION DU PRODUIT"
 msgstr "DÉFINITION DU PRODUIT"
 
-#: src/pages/about.tsx:243
-msgid "Degree in Brand Communications"
-msgstr "Degree in Brand Communications"
+#: src/data/projects.ts:73
+msgid "Design du système de design et implémentation React/Framer Motion."
+msgstr "Design du système de design et implémentation React/Framer Motion."
 
-#: src/pages/about.tsx:286
-#~ msgid "Designer passionné avec une vision à 360 degrés sur le produit numérique. Mon approche combine esthétique éditoriale et expertise technique pour créer des expériences mémorables et performantes."
-#~ msgstr "Designer passionné avec une vision à 360 degrés sur le produit numérique. Mon approche combine esthétique éditoriale et expertise technique pour créer des expériences mémorables et performantes."
+#: src/data/about.ts:65
+msgid "Design UI/UX"
+msgstr "Design UI/UX"
 
-#: src/pages/about.tsx:112
-#~ msgid "Diplôme"
-#~ msgstr "Diplôme"
+#: src/pages/index.tsx:192
+msgid "Designer graphique"
+msgstr "Designer graphique"
 
-#: src/pages/about.tsx:113
-#~ msgid "Diplômé en Communication de Marque"
-#~ msgstr "Diplômé en Communication de Marque"
+#: src/data/about.ts:57
+msgid "Dév Back-end"
+msgstr "Dév Back-end"
 
-#: src/pages/contact.tsx:246
-#~ msgid "Disons-nous bonjour."
-#~ msgstr "Disons-nous bonjour."
+#: src/data/about.ts:53
+msgid "Dév Front-end"
+msgstr "Dév Front-end"
 
-#: src/pages/index.tsx:34
-#~ msgid "Disponible pour de nouveaux projets"
-#~ msgstr "Disponible pour de nouveaux projets"
+#: src/data/about.ts:61
+msgid "Dév Mobile"
+msgstr "Dév Mobile"
 
-#: src/pages/about.tsx:240
+#: src/data/projects.ts:229
+msgid "Développement du frontend et du backend ainsi que l'intégration API."
+msgstr "Développement du frontend et du backend ainsi que l'intégration API."
+
+#: src/data/projects.ts:110
+msgid "Développement et maintenance des diverse interfaces du site web, mise en place de PostHog, Google Tag Manager et Google Analytics 4."
+msgstr "Développement et maintenance des diverse interfaces du site web, mise en place de PostHog, Google Tag Manager et Google Analytics 4."
+
+#: src/data/projects.ts:200
+msgid "Développement et maintenance du site web ainsi que son référencement (SEO)."
+msgstr "Développement et maintenance du site web ainsi que son référencement (SEO)."
+
+#: src/pages/about.tsx:136
+msgid "DÉVELOPPEUR DÉVELOPPEUR DÉVELOPPEUR"
+msgstr "DÉVELOPPEUR DÉVELOPPEUR DÉVELOPPEUR"
+
+#: src/data/projects.ts:109
+#: src/data/projects.ts:162
+#: src/data/projects.ts:199
+msgid "Développeur Frontend"
+msgstr "Développeur Frontend"
+
+#: src/data/projects.ts:17
+msgid "Développeur Frontend & UX/UI Design"
+msgstr "Développeur Frontend & UX/UI Design"
+
+#: src/data/projects.ts:228
+msgid "Développeur Frontend/Backend & UX/UI Design"
+msgstr "Développeur Frontend/Backend & UX/UI Design"
+
+#: src/pages/about.tsx:218
+msgid "Développeur full-stack"
+msgstr "Développeur full-stack"
+
+#: src/pages/about.tsx:184
+msgid "Développeur passionnée par la création de sites et d'applications web/mobile innovantes. Expérience de 5 ans en développement front-end et 2ans en back-end. Si vous appréciez mon travail, n'hésitez pas à me contacter ce serait un plaisir de collaborer avec vous."
+msgstr "Développeur passionnée par la création de sites et d'applications web/mobile innovantes. Expérience de 5 ans en développement front-end et 2ans en back-end. Si vous appréciez mon travail, n'hésitez pas à me contacter ce serait un plaisir de collaborer avec vous."
+
+#: src/pages/index.tsx:233
+msgid "Disponible pour les projets"
+msgstr "Disponible pour les projets"
+
+#: src/pages/about.tsx:309
 msgid "Éducation"
 msgstr "Éducation"
 
-#: src/pages/contact.tsx:270
-#: src/pages/contact.tsx:319
-#~ msgid "Email"
-#~ msgstr "Email"
-
-#: src/pages/index.tsx:210
+#: src/pages/index.tsx:215
 msgid "En savoir plus"
 msgstr "En savoir plus"
-
-#: src/pages/contact.tsx:295
-#~ msgid "Envoyer"
-#~ msgstr "Envoyer"
 
 #: src/pages/contact.tsx:103
 msgid "Envoyez-moi un message"
 msgstr "Envoyez-moi un message"
 
-#: src/pages/about.tsx:117
-#: src/pages/about.tsx:321
-#~ msgid "Expérience"
-#~ msgstr "Expérience"
+#: src/pages/about.tsx:333
+msgid "Expertise"
+msgstr "Expertise"
 
-#: src/pages/about.tsx:126
-#~ msgid "Expertise"
-#~ msgstr "Expertise"
+#: src/pages/projects.index.tsx:238
+msgid "Faire défiler pour explorer"
+msgstr "Faire défiler pour explorer"
 
-#: src/pages/about.tsx:263
-msgid "Expertise Timeline"
-msgstr "Expertise Timeline"
+#: src/data/about.ts:22
+msgid "Fondamentaux Web"
+msgstr "Fondamentaux Web"
 
-#: src/pages/about.tsx:387
-#~ msgid "Front-end Dev"
-#~ msgstr "Front-end Dev"
+#: src/data/about.ts:30
+msgid "Frameworks"
+msgstr "Frameworks"
 
-#: src/pages/about.tsx:344
-msgid "Get in touch"
-msgstr "Get in touch"
+#: src/data/projects.ts:11
+#: src/data/projects.ts:66
+#: src/data/projects.ts:103
+#: src/data/projects.ts:155
+#: src/data/projects.ts:193
+#: src/data/projects.ts:222
+msgid "Frontend Development"
+msgstr "Frontend Development"
 
-#: src/pages/contact.tsx:70
-msgid "GET IN TOUCH"
-msgstr "GET IN TOUCH"
-
-#: src/pages/about.tsx:283
-msgid "Hard Skills"
-msgstr "Hard Skills"
+#: src/data/projects.ts:243
+msgid "Gestion des produits, des services, des commandes et des utilisateurs."
+msgstr "Gestion des produits, des services, des commandes et des utilisateurs."
 
 #: src/pages/contact.tsx:159
 msgid "Heure Locale"
@@ -207,17 +260,76 @@ msgstr "Hey, je suis"
 msgid "Il semblerait que vous ayez bifurqué vers un univers numérique inexistant."
 msgstr "Il semblerait que vous ayez bifurqué vers un univers numérique inexistant."
 
-#: src/pages/index.tsx:48
-#~ msgid "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
-#~ msgstr "Je conçois des expériences numériques exceptionnelles alliant performance technique et esthétique raffinée. Spécialisé en React, TanStack et animations premium."
+#: src/data/projects.ts:123
+msgid "ITNET Technologies est spécialisée dans la fourniture de solutions de refroidissement par immersion pour les centres de données. Cette technologie permet de réduire considérablement la consommation d'énergie et d'améliorer les performances des serveurs."
+msgstr "ITNET Technologies est spécialisée dans la fourniture de solutions de refroidissement par immersion pour les centres de données. Cette technologie permet de réduire considérablement la consommation d'énergie et d'améliorer les performances des serveurs."
 
-#: src/pages/about.tsx:166
+#: src/data/projects.ts:104
+msgid "ITNET Technologies est une entreprise spécialisée dans les solutions en cybersécurité et en cloud écologique afin d'assurer la protection des données de ses clients."
+msgstr "ITNET Technologies est une entreprise spécialisée dans les solutions en cybersécurité et en cloud écologique afin d'assurer la protection des données de ses clients."
+
+#: src/data/projects.ts:130
+msgid "ITNET Technologies, votre solution tout-en-un"
+msgstr "ITNET Technologies, votre solution tout-en-un"
+
+#: src/pages/about.tsx:168
 msgid "L'art de sculpter le digital."
 msgstr "L'art de sculpter le digital."
 
-#: src/components/Navbar.tsx:121
-#~ msgid "Let's Talk"
-#~ msgstr "Let's Talk"
+#: src/data/projects.ts:23
+msgid "L'idée était de créer des interfaces modernes, épurées et responsive afin de mettre en avant les services de Wayhost.cloud."
+msgstr "L'idée était de créer des interfaces modernes, épurées et responsive afin de mettre en avant les services de Wayhost.cloud."
+
+#: src/data/projects.ts:78
+#: src/data/projects.ts:88
+msgid "L'idée était de créer une interface qui disparaît au profit du contenu."
+msgstr "L'idée était de créer une interface qui disparaît au profit du contenu."
+
+#: src/data/projects.ts:168
+msgid "L'idée était de proposer une plateforme simple et intuitive pour gérer les secrets, coffres-forts numériques et bien d'autres données sensibles de manière sécurisée et sécurisée."
+msgstr "L'idée était de proposer une plateforme simple et intuitive pour gérer les secrets, coffres-forts numériques et bien d'autres données sensibles de manière sécurisée et sécurisée."
+
+#: src/data/about.ts:26
+msgid "Langages"
+msgstr "Langages"
+
+#: src/data/projects.ts:34
+msgid "Le client tableau de bord (Utilisateur/Admin)"
+msgstr "Le client tableau de bord (Utilisateur/Admin)"
+
+#: src/data/projects.ts:22
+#: src/data/projects.ts:77
+#: src/data/projects.ts:114
+#: src/data/projects.ts:167
+#: src/data/projects.ts:204
+#: src/data/projects.ts:233
+msgid "Le Concept"
+msgstr "Le Concept"
+
+#: src/data/projects.ts:122
+msgid "Le refroidissement par immersion"
+msgstr "Le refroidissement par immersion"
+
+#: src/data/projects.ts:12
+msgid "Le site Wayhost.cloud est une plateforme spécialisée dans les services d’hébergement et d’infrastructure cloud, proposant des solutions complètes comme l’hébergement web, les serveurs VPS et dédiés, l’enregistrement de domaines, ainsi que des services de stockage et de cloud privé ou hybride. Il met en avant des performances élevées, une haute disponibilité, la sécurité des données et une scalabilité adaptée aux besoins des particuliers comme des entreprises, avec un support technique dédié et des technologies modernes visant à optimiser les performances et la consommation énergétique."
+msgstr "Le site Wayhost.cloud est une plateforme spécialisée dans les services d’hébergement et d’infrastructure cloud, proposant des solutions complètes comme l’hébergement web, les serveurs VPS et dédiés, l’enregistrement de domaines, ainsi que des services de stockage et de cloud privé ou hybride. Il met en avant des performances élevées, une haute disponibilité, la sécurité des données et une scalabilité adaptée aux besoins des particuliers comme des entreprises, avec un support technique dédié et des technologies modernes visant à optimiser les performances et la consommation énergétique."
+
+#: src/data/projects.ts:242
+msgid "Le tableau de bord administratif"
+msgstr "Le tableau de bord administratif"
+
+#: src/data/projects.ts:35
+msgid "Le tableau de bord traditionnel vous permet de gérer vos services, vos abonnements et vos factures."
+msgstr "Le tableau de bord traditionnel vous permet de gérer vos services, vos abonnements et vos factures."
+
+#: src/data/projects.ts:72
+msgid "Lead Creative Developer"
+msgstr "Lead Creative Developer"
+
+#: src/pages/__root.tsx:33
+#: src/pages/__root.tsx:44
+msgid "LEEEIGHT. | Portfolio de Développeur Créatif"
+msgstr "LEEEIGHT. | Portfolio de Développeur Créatif"
 
 #: src/pages/contact.tsx:149
 msgid "Localisation"
@@ -227,29 +339,37 @@ msgstr "Localisation"
 msgid "Mais vous pouvez m’appeler"
 msgstr "Mais vous pouvez m’appeler"
 
-#: src/pages/index.tsx:63
-#~ msgid "Me contacter"
-#~ msgstr "Me contacter"
+#: src/pages/about.tsx:387
+msgid "Me contacter"
+msgstr "Me contacter"
 
-#: src/pages/contact.tsx:282
-#~ msgid "Message"
-#~ msgstr "Message"
+#: src/pages/contact.tsx:70
+msgid "ME CONTACTER"
+msgstr "ME CONTACTER"
 
-#: src/pages/about.tsx:320
-#~ msgid "MON PARCOURS"
-#~ msgstr "MON PARCOURS"
+#: src/data/projects.ts:223
+msgid "MGE - Mes Goûts Éthiques est une petite plateforme de vente en ligne de produits (habits, accessoires, etc.) et services (patisserie, plats, etc.), avec un accent mis sur la qualité et la simplicité."
+msgstr "MGE - Mes Goûts Éthiques est une petite plateforme de vente en ligne de produits (habits, accessoires, etc.) et services (patisserie, plats, etc.), avec un accent mis sur la qualité et la simplicité."
 
-#: src/routes/index.tsx:29
-#~ msgid "My Portfolio"
-#~ msgstr "My Portfolio"
+#: src/data/projects.ts:194
+msgid "Mia Events & Co est une agence spécialisée dans l’organisation et la décoration d’événements tels que mariages, anniversaires, baptêmes ou célébrations privées. Il met en avant un accompagnement personnalisé pour créer des événements sur-mesure, avec une attention particulière portée à la scénographie, à l’esthétique et aux détails afin de transformer chaque projet en moment unique et mémorable, fidèle aux envies et à l’histoire des clients."
+msgstr "Mia Events & Co est une agence spécialisée dans l’organisation et la décoration d’événements tels que mariages, anniversaires, baptêmes ou célébrations privées. Il met en avant un accompagnement personnalisé pour créer des événements sur-mesure, avec une attention particulière portée à la scénographie, à l’esthétique et aux détails afin de transformer chaque projet en moment unique et mémorable, fidèle aux envies et à l’histoire des clients."
 
-#: src/pages/projects.$projectId.tsx:316
-msgid "Next Project"
-msgstr "Projet suivant"
+#: src/data/projects.ts:163
+msgid "Mise place de l'implémentation de l'interface utilisateur et du tableau de bord via une maquette Figma et intégration API."
+msgstr "Mise place de l'implémentation de l'interface utilisateur et du tableau de bord via une maquette Figma et intégration API."
 
-#: src/pages/contact.tsx:265
-#~ msgid "Nom"
-#~ msgstr "Nom"
+#: src/pages/about.tsx:312
+msgid "MIT university | Groupe Supdeco Dakar"
+msgstr "MIT university | Groupe Supdeco Dakar"
+
+#: src/data/projects.ts:42
+msgid "Ne perdez pas l'accès à vos services même loin de votre poste de travail"
+msgstr "Ne perdez pas l'accès à vos services même loin de votre poste de travail"
+
+#: src/data/about.ts:47
+msgid "Outils & CMS"
+msgstr "Outils & CMS"
 
 #: src/pages/contact.tsx:131
 msgid "Ouvert aux opportunités de collaboration partout dans le monde."
@@ -263,126 +383,140 @@ msgstr "Page Perdue"
 msgid "Page précédente"
 msgstr "Page précédente"
 
-#: src/pages/projects.index.tsx:142
-msgid "Portfolio Selection"
-msgstr "Portfolio Selection"
+#: src/pages/contact.tsx:58
+msgid "PARLONS-EN PARLONS-EN PARLONS-EN"
+msgstr "PARLONS-EN PARLONS-EN PARLONS-EN"
 
-#: src/pages/about.tsx:357
-#~ msgid "Prêt à façonner le futur de votre produit ?"
-#~ msgstr "Prêt à façonner le futur de votre produit ?"
+#: src/pages/__root.tsx:38
+msgid "Portfolio professionnel d'un développeur créatif spécialisé en React, TanStack et animations haut de gamme."
+msgstr "Portfolio professionnel d'un développeur créatif spécialisé en React, TanStack et animations haut de gamme."
 
 #: src/pages/contact.tsx:96
 msgid "Prêt pour l'aventure ?"
 msgstr "Prêt pour l'aventure ?"
 
-#: src/pages/about.tsx:382
-#~ msgid "Product Management"
-#~ msgstr "Product Management"
-
-#: src/pages/projects.$projectId.tsx:44
-msgid "Project not found"
+#: src/pages/projects.$projectId.tsx:46
+msgid "Projet non trouvé"
 msgstr "Projet non trouvé"
+
+#: src/pages/projects.$projectId.tsx:343
+msgid "Projet Suivant"
+msgstr "Projet Suivant"
 
 #: src/components/Navbar.tsx:177
 msgid "Projets"
 msgstr "Projets"
 
-#: src/pages/projects.index.tsx:145
+#: src/pages/projects.index.tsx:148
 msgid "PROJETS"
 msgstr "PROJETS"
 
-#: src/pages/index.tsx:81
-#~ msgid "projets réussis avec succès"
-#~ msgstr "projets réussis avec succès"
+#: src/data/projects.ts:115
+msgid "Proposer un plateforme moderne et responsive pour ITNET Technologies afin de mettre en avant ses services et ses solutions."
+msgstr "Proposer un plateforme moderne et responsive pour ITNET Technologies afin de mettre en avant ses services et ses solutions."
 
-#: src/pages/about.tsx:280
-#~ msgid "Qui suis-je ?"
-#~ msgstr "Qui suis-je ?"
+#: src/data/projects.ts:180
+msgid "Qu'attendez-vous pour sécuriser vos données ?"
+msgstr "Qu'attendez-vous pour sécuriser vos données ?"
 
-#: src/pages/contact.tsx:305
-#~ msgid "Réponse sous 24h"
-#~ msgstr "Réponse sous 24h"
+#: src/data/projects.ts:248
+msgid "Que vous soyez sur ordinateur, tablette ou mobile, profitez d'une expérience fluide et agréable."
+msgstr "Que vous soyez sur ordinateur, tablette ou mobile, profitez d'une expérience fluide et agréable."
 
 #: src/components/NotFound.tsx:51
 msgid "Retourner à l'accueil"
 msgstr "Retourner à l'accueil"
 
-#: src/pages/projects.$projectId.tsx:196
-msgid "Scroll for details"
-msgstr "Défiler pour les détails"
+#: src/pages/projects.$projectId.tsx:224
+msgid "Rôle & Responsabilité"
+msgstr "Rôle & Responsabilité"
 
-#: src/pages/about.tsx:338
-#~ msgid "Skills"
-#~ msgstr "Skills"
+#: src/pages/projects.index.tsx:145
+msgid "Sélection de projets"
+msgstr "Sélection de projets"
 
-#: src/pages/about.tsx:377
-#~ msgid "Software Design"
-#~ msgstr "Software Design"
+#: src/data/projects.ts:221
+msgid "Site web (E-commerce)"
+msgstr "Site web (E-commerce)"
 
-#: src/pages/contact.tsx:277
-#~ msgid "Sujet"
-#~ msgstr "Sujet"
+#: src/data/projects.ts:102
+#: src/data/projects.ts:192
+msgid "Site web (Vitrine)"
+msgstr "Site web (Vitrine)"
 
-#: src/pages/about.tsx:302
-#~ msgid "Télécharger mon CV"
-#~ msgstr "Télécharger mon CV"
+#: src/data/projects.ts:10
+msgid "Site web (Vitrine/SaaS/Design)"
+msgstr "Site web (Vitrine/SaaS/Design)"
 
-#: src/pages/about.tsx:321
+#: src/data/projects.ts:154
+msgid "Site web (Vitrine/Tableau de bord)"
+msgstr "Site web (Vitrine/Tableau de bord)"
+
+#: src/pages/index.tsx:146
+msgid "Situé à Dakar | Développeur Full-stack | UI/UX Designer"
+msgstr "Situé à Dakar | Développeur Full-stack | UI/UX Designer"
+
+#: src/pages/about.tsx:246
+msgid "Stack Technique"
+msgstr "Stack Technique"
+
+#: src/pages/index.tsx:229
+msgid "Statut"
+msgstr "Statut"
+
+#: src/pages/projects.$projectId.tsx:255
+msgid "Technologies"
+msgstr "Technologies"
+
+#: src/pages/about.tsx:364
 msgid "Téléchargez une version détaillée de mon parcours professionnel."
 msgstr "Téléchargez une version détaillée de mon parcours professionnel."
+
+#: src/data/projects.ts:87
+msgid "The quiet revolution minimalist"
+msgstr "The quiet revolution minimalist"
 
 #: src/pages/contact.tsx:174
 msgid "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion."
 msgstr "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion."
 
-#: src/pages/about.tsx:365
-#~ msgid "Travaillons ensemble"
-#~ msgstr "Travaillons ensemble"
-
 #: src/pages/contact.tsx:74
 msgid "Travaillons ensemble."
 msgstr "Travaillons ensemble."
 
-#: src/pages/index.tsx:192
-#~ msgid "TypeScript"
-#~ msgstr "TypeScript"
+#: src/data/projects.ts:67
+msgid "Une plateforme de contenu minimaliste axée sur la typographie et l'expérience de lecture."
+msgstr "Une plateforme de contenu minimaliste axée sur la typographie et l'expérience de lecture."
 
-#: src/pages/projects.index.tsx:160
+#: src/pages/projects.index.tsx:163
 msgid "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
 msgstr "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
 
-#: src/pages/index.tsx:43
-#~ msgid "Univers Créatif"
-#~ msgstr "Univers Créatif"
+#: src/data/projects.ts:11
+#: src/data/projects.ts:66
+#: src/data/projects.ts:103
+#: src/data/projects.ts:155
+#: src/data/projects.ts:193
+#: src/data/projects.ts:222
+msgid "UX/UI Design"
+msgstr "UX/UI Design"
 
-#: src/routes/index.tsx:49
-#~ msgid "View Projects"
-#~ msgstr "View Projects"
+#: src/pages/index.tsx:194
+msgid "UX/UI designer"
+msgstr "UX/UI designer"
 
-#: src/pages/projects.$projectId.tsx:179
-msgid "Visit Website"
-msgstr "Visiter le site"
+#: src/pages/projects.$projectId.tsx:181
+msgid "Voir le site"
+msgstr "Voir le site"
 
-#: src/pages/index.tsx:207
+#: src/pages/index.tsx:212
 msgid "Voir mes projets"
 msgstr "Voir mes projets"
 
-#: src/pages/contact.tsx:285
-#~ msgid "Votre message ici..."
-#~ msgstr "Votre message ici..."
+#: src/data/projects.ts:175
+msgid "Votre tableau de bord pour la gestion de vos secrets et coffres-forts numériques"
+msgstr "Votre tableau de bord pour la gestion de vos secrets et coffres-forts numériques"
 
-#: src/pages/about.tsx:372
-#~ msgid "Web Design"
-#~ msgstr "Web Design"
-
-#: src/pages/about.tsx:392
-#~ msgid "Webflow/Framer"
-#~ msgstr "Webflow/Framer"
-
-#: src/routes/index.tsx:37
-#~ msgid "Welcome to my modern portfolio built with the latest technologies. Explore my projects and skills."
-#~ msgstr "Welcome to my modern portfolio built with the latest technologies. Explore my projects and skills."
-
-#: src/pages/about.tsx:257
-msgid "Years"
-msgstr "Years"
+#: src/data/projects.ts:65
+msgid "Web Design"
+msgstr "Web Design"

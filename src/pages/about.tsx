@@ -127,13 +127,13 @@ function AboutPage() {
           style={{ x: bigTextX }}
           className="text-[25vw] font-eight leading-none whitespace-nowrap text-white/5"
         >
-          CREATIVE CREATIVE CREATIVE
+          <Trans>CRÉATIF CRÉATIF CRÉATIF</Trans>
         </motion.div>
         <motion.div
           style={{ x: bigTextX2 }}
           className="text-[25vw] font-eight leading-none whitespace-nowrap self-end"
         >
-          DEVELOPER DEVELOPER DEVELOPER
+          <Trans>DÉVELOPPEUR DÉVELOPPEUR DÉVELOPPEUR</Trans>
         </motion.div>
       </div>
 
@@ -243,12 +243,12 @@ function AboutPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-eight text-3xl uppercase tracking-tighter leading-none mb-1">
-                      <Trans>Technical Stack</Trans>
+                      <Trans>Stack Technique</Trans>
                     </h3>
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
                       <span className="text-primary-400/60 font-mono text-[10px] uppercase tracking-widest">
-                        <Trans>Core Proficiencies</Trans>
+                        <Trans>Compétences Clés</Trans>
                       </span>
                     </div>
                   </div>
@@ -259,11 +259,11 @@ function AboutPage() {
                 {aboutData.skills.map((cat, i) => {
                   const Icon =
                     {
-                      "Web Foundation": Globe,
-                      Languages: Terminal,
+                      "Fondamentaux Web": Globe,
+                      Langages: Terminal,
                       Frameworks: Layers,
-                      "Architecture & Data": Database,
-                      "Tools & CMS": Wrench,
+                      "Architecture & Données": Database,
+                      "Outils & CMS": Wrench,
                     }[i18n._(cat.category as any)] || Code2;
 
                   return (
@@ -324,7 +324,7 @@ function AboutPage() {
                   </div>
                   <div className="bg-primary-500/10 px-3 py-1 rounded-full border border-primary-500/20">
                     <span className="text-primary-400 font-eight text-sm">
-                      5+ YEARS
+                      5+ <Trans>ANS</Trans>
                     </span>
                   </div>
                 </div>
@@ -384,7 +384,7 @@ function AboutPage() {
                 <ExternalLink className="w-6 h-6 text-white/40 group-hover/card:text-white transition-colors" />
               </div>
               <span className="text-white/40 font-gimbal text-[10px] uppercase tracking-widest mb-1">
-                <Trans>Get in touch</Trans>
+                <Trans>Me contacter</Trans>
               </span>
               <span className="text-white font-eight text-lg">
                 hello@leeeight.com
