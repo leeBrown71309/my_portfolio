@@ -196,7 +196,7 @@ export function Loader() {
                 }}
               />
               <div
-                className="absolute inset-0 rounded-full mix-blend-plus-lighter blur-[4px]"
+                className="absolute inset-0 rounded-full mix-blend-plus-lighter blur-xs"
                 style={{
                   background:
                     "conic-gradient(from 0deg, transparent 200deg, rgba(129, 140, 248, 0.6) 360deg)",
@@ -229,7 +229,7 @@ export function Loader() {
                 }}
               />
               <div
-                className="absolute inset-0 rounded-full mix-blend-plus-lighter blur-[4px]"
+                className="absolute inset-0 rounded-full mix-blend-plus-lighter blur-xs"
                 style={{
                   background:
                     "conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(59, 130, 246, 0.6) 270deg, transparent 340deg)",
