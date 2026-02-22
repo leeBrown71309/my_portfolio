@@ -177,7 +177,7 @@ function App() {
               <p className="text-white/40 font-gimbal text-[10px] md:text-xl uppercase tracking-[0.1em] flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
                 <Trans>Mais vous pouvez m’appeler</Trans>
                 <span className="text-primary-500 font-eight text-2xl md:text-6xl italic inline-block hover:scale-110 transition-transform cursor-pointer">
-                  LEE
+                  LEE BROWN
                 </span>
               </p>
             </motion.div>
