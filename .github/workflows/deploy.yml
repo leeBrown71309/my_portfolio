@@ -22,11 +22,7 @@ jobs:
             cd /var/www/leeeight-portfolio
 
             # Si le dossier est vide, on clone, sinon on pull
-            if [ ! -d ".git" ]; then
-              git clone https://github.com/${{ github.repository }}.git .
-            else
-              git pull origin test-prod
-            fi
+            git pull origin test-prod
 
             # Installation de Bun (au cas où) et déploiement
             export BUN_INSTALL="$HOME/.bun"
