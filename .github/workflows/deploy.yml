@@ -2,7 +2,7 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - main # Le déploiement se lancera à chaque push sur main
+      - test-prod # Le déploiement se lancera à chaque push sur main
 
 jobs:
   deploy:
@@ -25,7 +25,7 @@ jobs:
             if [ ! -d ".git" ]; then
               git clone https://github.com/${{ github.repository }}.git .
             else
-              git pull origin main
+              git pull origin test-prod
             fi
 
             # Installation de Bun (au cas où) et déploiement
@@ -36,6 +36,7 @@ jobs:
             bun run build
 
             # Lancement ou redémarrage avec PM2
-            pm2 delete leeeight-site || true
-            pm2 start "bun run start" --name "leeeight-site"
+            pm2 delete portfolio-ssr || true
+            # On lance le serveur Nitro avec PM2
+            pm2 start .output/server/index.mjs --name "portfolio-ssr"
             pm2 save
