@@ -2,17 +2,18 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - test-prod # Le déploiement se lancera à chaque push
+      - main # Le déploiement se lancera à chaque push
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        # Toujours utiliser le SHA complet, pas le tag
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
 
       - name: Deploy to VPS
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@8fdfeb034ef6e9033a8a4407975aedbc12a08737
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -22,7 +23,8 @@ jobs:
             cd /var/www/leeeight-portfolio
 
             # Si le dossier est vide, on clone, sinon on pull
-            git pull origin test-prod
+            git fetch origin main
+            git reset --hard origin/main
 
             # Installation de Bun (au cas où) et déploiement
             export BUN_INSTALL="$HOME/.bun"
@@ -32,7 +34,5 @@ jobs:
             bun run build
 
             # Lancement ou redémarrage avec PM2
-            pm2 delete portfolio-ssr || true
-            # On lance le serveur Nitro avec PM2
-            pm2 start .output/server/index.mjs --name "portfolio-ssr"
+            pm2 restart leeeight-portfolio || pm2 start .output/server/index.mjs --name "leeeight-portfolio"
             pm2 save
