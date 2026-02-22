@@ -2,7 +2,7 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - test-prod # Le déploiement se lancera à chaque push sur main
+      - test-prod
 
 jobs:
   deploy:
