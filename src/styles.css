@@ -1,0 +1,235 @@
+/* ————————————————————————————————————————————————
+   DOSSIER N°26 — Design System
+   "Ink & Paper" — editorial brutalism
+   Light bone paper / warm neutral ink / one vermillion accent
+   Radius lock: all-sharp (0). Shadow lock: flat print, no drop shadows.
+   ———————————————————————————————————————————————— */
+
+@import "@fontsource-variable/archivo";
+@import "@fontsource-variable/archivo/wght-italic.css";
+@import "@fontsource-variable/eb-garamond";
+@import "@fontsource-variable/eb-garamond/wght-italic.css";
+@import "@fontsource/space-mono";
+@import "@fontsource/space-mono/700.css";
+@import "@fontsource/space-mono/400-italic.css";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Palette — one accent, locked */
+  --color-paper: #f2f1ec;
+  --color-paper-deep: #e7e5dc;
+  --color-ink: #141412;
+  --color-ink-soft: #44423c;
+  --color-muted: #807c72;
+  --color-accent: #ff4d00;
+  --color-line: rgb(20 20 18 / 0.16);
+  --color-line-strong: rgb(20 20 18 / 0.42);
+
+  /* Typography */
+  --font-display: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "EB Garamond Variable", "EB Garamond", Georgia, serif;
+  --font-mono: "Space Mono", ui-monospace, "Courier New", monospace;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.83, 0, 0.17, 1);
+
+  --animate-ticker: ticker 28s linear infinite;
+  --animate-ticker-slow: ticker 44s linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes ticker {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* ——— Dark theme: the same tokens, swapped. The vermillion accent stays. ——— */
+
+.dark {
+  --color-paper: #131210;
+  --color-paper-deep: #1e1c18;
+  --color-ink: #f2f1ec;
+  --color-ink-soft: #c8c4b8;
+  --color-muted: #8b877b;
+  --color-line: rgb(242 241 236 / 0.16);
+  --color-line-strong: rgb(242 241 236 / 0.42);
+}
+
+/* Theme-invariant ink island (menu overlay): local token scope,
+   always black-ink with bone text regardless of the active theme. */
+.ink-island {
+  --color-paper: #f2f1ec;
+  --color-paper-deep: #e7e5dc;
+  --color-ink: #141412;
+  --color-ink-soft: #44423c;
+  --color-muted: #807c72;
+  --color-line: rgb(242 241 236 / 0.16);
+  --color-line-strong: rgb(242 241 236 / 0.42);
+}
+
+/* ——— Base ——— */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-display antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Thin ink scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+  border-left: 1px solid var(--color-line);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ——— Print texture: fixed grain, never on scrolling containers ——— */
+
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+.dark .grain::after {
+  opacity: 0.09;
+}
+
+/* ——— Typographic utilities ——— */
+
+/* Hollow / outline display type */
+.text-stroke {
+  -webkit-text-stroke: 1.5px var(--color-ink);
+  color: transparent;
+}
+.text-stroke-thin {
+  -webkit-text-stroke: 1px var(--color-ink);
+  color: transparent;
+}
+.text-stroke-paper {
+  -webkit-text-stroke: 1.5px var(--color-paper);
+  color: transparent;
+}
+
+/* Expanded grotesque for monumental headings */
+.font-wide {
+  font-stretch: 122%;
+}
+.font-narrow {
+  font-stretch: 76%;
+}
+
+/* Meta label — the "voice of the document" */
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ——— Interaction utilities ——— */
+
+/* Sliding underline for text links */
+.u-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-out-expo);
+}
+.u-link:hover,
+.u-link.active {
+  background-size: 100% 1px;
+}
+
+/* Ink-sweep hover for big TOC rows: paper text on ink flood */
+.sweep {
+  position: relative;
+  isolation: isolate;
+}
+.sweep::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-ink);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.45s var(--ease-snap);
+}
+.sweep:hover::before {
+  transform: scaleY(1);
+}
+
+/* Ticker track */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: var(--animate-ticker);
+}
+.ticker-track.slow {
+  animation: var(--animate-ticker-slow);
+}
+
+/* Rubber stamp */
+.stamp {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: 0.45rem 0.9rem;
+  transform: rotate(-4deg);
+  background: color-mix(in srgb, var(--color-paper) 85%, transparent);
+  white-space: nowrap;
+}
+
+/* Reduced motion: collapse loops & smooth scrolling */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ticker-track {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

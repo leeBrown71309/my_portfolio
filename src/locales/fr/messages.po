@@ -1,0 +1,595 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-07-20 17:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/data/about.ts:58
+msgid "2 years"
+msgstr "2 ans"
+
+#: src/pages/index.tsx:217
+msgid "2024 — 2026"
+msgstr "2024 — 2026"
+
+#: src/data/about.ts:62
+#: src/data/about.ts:66
+msgid "3 years"
+msgstr "3 ans"
+
+#: src/data/about.ts:54
+msgid "5 years"
+msgstr "5 ans"
+
+#: src/data/projects.ts:43
+msgid "A companion mobile experience that keeps your infrastructure within reach, wherever you are."
+msgstr "Une expérience mobile compagnon qui garde votre infrastructure à portée de main, où que vous soyez."
+
+#: src/data/projects.ts:67
+msgid "A minimalist content platform focused on typography and the reading experience."
+msgstr "Une plateforme de contenu minimaliste axée sur la typographie et l'expérience de lecture."
+
+#: src/pages/projects.index.tsx:32
+msgid "A selection of works where aesthetics meet creative engineering."
+msgstr "Une sélection de travaux où l'esthétique rencontre l'ingénierie créative."
+
+#: src/pages/index.tsx:262
+msgid "About me"
+msgstr "À propos"
+
+#: src/data/projects.ts:246
+msgid "Accessible on all devices"
+msgstr "Accessible sur tous les appareils"
+
+#: src/data/about.ts:43
+msgid "Architecture & Data"
+msgstr "Architecture & Données"
+
+#: src/pages/index.tsx:122
+#: src/pages/index.tsx:192
+msgid "Available for projects"
+msgstr "Disponible pour les projets"
+
+#: src/data/projects.ts:156
+msgid "AXMARIL is a secure secret management solution designed for businesses and individuals, to store, protect and share sensitive data (credentials, keys, files) in digital vaults. The platform emphasizes ease of use, access control and traceability to strengthen system security while facilitating collaboration between users and teams."
+msgstr "AXMARIL est une solution de gestion sécurisée des secrets conçue pour les entreprises et les particuliers, permettant de stocker, protéger et partager des données sensibles (identifiants, clés, fichiers) dans des coffres-forts numériques. La plateforme met l'accent sur la simplicité d'utilisation, le contrôle des accès et la traçabilité, afin de renforcer la sécurité des systèmes tout en facilitant la collaboration entre utilisateurs et équipes."
+
+#: src/pages/projects.$projectId.tsx:36
+msgid "Back to the index"
+msgstr "Retour à l'index"
+
+#: src/data/about.ts:57
+msgid "Back-end Dev"
+msgstr "Dév Back-end"
+
+#: src/pages/contact.tsx:131
+msgid "Base of operations — Dakar"
+msgstr "Base des opérations — Dakar"
+
+#: src/pages/index.tsx:160
+msgid "But you can call me"
+msgstr "Mais vous pouvez m'appeler"
+
+#: src/pages/projects.$projectId.tsx:28
+msgid "Case not found"
+msgstr "Cas introuvable"
+
+#: src/pages/index.tsx:217
+msgid "cases"
+msgstr "cas"
+
+#: src/pages/projects.$projectId.tsx:111
+msgid "Category"
+msgstr "Catégorie"
+
+#: src/pages/projects.$projectId.tsx:99
+msgid "Client"
+msgstr "Client"
+
+#: src/components/Header.tsx:87
+#: src/components/MenuOverlay.tsx:66
+msgid "Close"
+msgstr "Fermer"
+
+#: src/components/Header.tsx:71
+#: src/components/MenuOverlay.tsx:16
+msgid "Contact"
+msgstr "Contact"
+
+#: src/pages/about.tsx:92
+msgid "Contact me"
+msgstr "Me contacter"
+
+#: src/data/projects.ts:204
+msgid "Create an elegant and intuitive user interface for an agency specializing in event organization and decoration."
+msgstr "Créer une interface utilisateur élégante et intuitive pour une agence spécialisée dans l'organisation et la décoration d'événements."
+
+#: src/data/projects.ts:175
+msgid "Create, edit and share sensitive data with your team or loved ones, securely."
+msgstr "Créez, modifiez et partagez des données sensibles avec votre équipe ou vos proches, en toute sécurité."
+
+#: src/components/BottomBar.tsx:25
+msgid "Dakar — 14.7167°N, 17.4677°W"
+msgstr "Dakar — 14.7167°N, 17.4677°W"
+
+#: src/components/MenuOverlay.tsx:142
+msgid "Dakar, Senegal — GMT+0"
+msgstr "Dakar, Sénégal — GMT+0"
+
+#: src/components/ThemeToggle.tsx:46
+msgid "Dark"
+msgstr "Sombre"
+
+#: src/data/projects.ts:115
+msgid "Deliver a modern, responsive platform for ITNET Technologies to showcase its services and solutions."
+msgstr "Proposer une plateforme moderne et responsive pour ITNET Technologies afin de mettre en avant ses services et ses solutions."
+
+#: src/data/projects.ts:233
+msgid "Design a simple platform for selling products and services online."
+msgstr "Concevoir une plateforme simple de vente en ligne de produits et services."
+
+#: src/data/projects.ts:18
+msgid "Design and development of the website and dashboard interface, implementation of unit tests and API integration."
+msgstr "Conception et développement de l'interface du site web et du tableau de bord, mise en place des tests unitaires et de l'intégration API."
+
+#: src/data/projects.ts:73
+msgid "Design of the design system and React/Framer Motion implementation."
+msgstr "Design du système de design et implémentation React/Framer Motion."
+
+#: src/pages/about.tsx:67
+msgid "Developer passionate about creating innovative web and mobile applications. Five years of experience in front-end development, two years in back-end. If you appreciate my work, feel free to contact me — it would be a pleasure to collaborate with you."
+msgstr "Développeur passionné par la création de sites et d'applications web/mobile innovantes. Cinq ans d'expérience en développement front-end et deux ans en back-end. Si vous appréciez mon travail, n'hésitez pas à me contacter — ce serait un plaisir de collaborer avec vous."
+
+#: src/pages/index.tsx:249
+msgid "Developer passionate about creating innovative web and mobile applications. Five years of front-end experience, two years of back-end — and a designer's eye on every line of code."
+msgstr "Développeur passionné par la création d'applications web et mobiles innovantes. Cinq ans d'expérience en front-end, deux ans en back-end — et un œil de designer sur chaque ligne de code."
+
+#: src/data/projects.ts:199
+msgid "Development and maintenance of the website as well as its SEO."
+msgstr "Développement et maintenance du site web ainsi que son référencement (SEO)."
+
+#: src/data/projects.ts:110
+msgid "Development and maintenance of the website's various interfaces, implementation of PostHog, Google Tag Manager and Google Analytics 4."
+msgstr "Développement et maintenance des diverses interfaces du site web, mise en place de PostHog, Google Tag Manager et Google Analytics 4."
+
+#: src/data/projects.ts:228
+msgid "Development of the frontend and backend as well as API integration."
+msgstr "Développement du frontend et du backend ainsi que l'intégration API."
+
+#: src/pages/about.tsx:182
+msgid "Document — PDF"
+msgstr "Document — PDF"
+
+#: src/pages/about.tsx:188
+msgid "Download a detailed version of my professional journey."
+msgstr "Téléchargez une version détaillée de mon parcours professionnel."
+
+#: src/pages/about.tsx:79
+msgid "Education"
+msgstr "Formation"
+
+#: src/pages/contact.tsx:144
+msgid "Elsewhere"
+msgstr "Ailleurs"
+
+#: src/pages/projects.index.tsx:37
+msgid "entries — scroll to explore"
+msgstr "entrées — faites défiler pour explorer"
+
+#: src/components/NotFound.tsx:9
+msgid "Error — Entry missing"
+msgstr "Erreur — Entrée manquante"
+
+#: src/pages/about.tsx:108
+msgid "Expertise"
+msgstr "Expertise"
+
+#: src/components/Header.tsx:56
+msgid "Folio ©2026"
+msgstr "Folio ©2026"
+
+#: src/data/about.ts:30
+msgid "Frameworks"
+msgstr "Frameworks"
+
+#: src/data/about.ts:53
+msgid "Front-end Dev"
+msgstr "Dév Front-end"
+
+#: src/data/projects.ts:109
+#: src/data/projects.ts:161
+#: src/data/projects.ts:198
+msgid "Frontend Developer"
+msgstr "Développeur Frontend"
+
+#: src/data/projects.ts:17
+msgid "Frontend Developer & UI/UX Design"
+msgstr "Développeur Frontend & UX/UI Design"
+
+#: src/data/projects.ts:11
+#: src/data/projects.ts:66
+#: src/data/projects.ts:103
+#: src/data/projects.ts:155
+#: src/data/projects.ts:192
+#: src/data/projects.ts:221
+msgid "Frontend Development"
+msgstr "Développement Frontend"
+
+#: src/data/projects.ts:227
+msgid "Frontend/Backend Developer & UI/UX Design"
+msgstr "Développeur Frontend/Backend & UX/UI Design"
+
+#: src/pages/index.tsx:227
+msgid "Full index"
+msgstr "Index complet"
+
+#: src/pages/index.tsx:108
+msgid "Full-stack Developer"
+msgstr "Développeur Full-stack"
+
+#: src/pages/index.tsx:196
+msgid "Full-stack development"
+msgstr "Développement full-stack"
+
+#: src/pages/contact.tsx:47
+msgid "Get in touch"
+msgstr "Me contacter"
+
+#: src/pages/index.tsx:204
+msgid "Graphic design"
+msgstr "Design graphique"
+
+#: src/pages/index.tsx:164
+msgid "Graphic designer, UI/UX designer & full-stack developer. I sculpt digital interfaces where aesthetics meet performance."
+msgstr "Designer graphique, UX/UI designer & développeur full-stack. Je sculpte des interfaces numériques où l'esthétique rencontre la performance."
+
+#: src/pages/index.tsx:131
+msgid "Hey, I am"
+msgstr "Hey, je suis"
+
+#: src/data/projects.ts:12
+msgid "High-performance cloud platform offering web hosting, VPS, dedicated servers and secure storage solutions for businesses and individuals."
+msgstr "Plateforme cloud haute performance proposant des solutions d'hébergement web, VPS, serveurs dédiés et stockage sécurisé pour entreprises et particuliers."
+
+#: src/components/Header.tsx:65
+#: src/components/MenuOverlay.tsx:13
+msgid "Home"
+msgstr "Accueil"
+
+#: src/data/projects.ts:122
+msgid "Immersion cooling"
+msgstr "Le refroidissement par immersion"
+
+#: src/data/projects.ts:162
+msgid "Implementation of the user interface and dashboard from a Figma mockup, plus API integration."
+msgstr "Mise en place de l'interface utilisateur et du tableau de bord via une maquette Figma, ainsi que l'intégration API."
+
+#: src/components/Header.tsx:87
+#: src/pages/projects.$projectId.tsx:57
+msgid "Index"
+msgstr "Index"
+
+#: src/pages/projects.index.tsx:24
+msgid "Index of cases"
+msgstr "Index des cas"
+
+#: src/components/NotFound.tsx:15
+msgid "It seems you've branched out into a page that was never indexed."
+msgstr "Il semblerait que vous ayez bifurqué vers une page qui n'a jamais été indexée."
+
+#: src/data/projects.ts:104
+msgid "ITNET Technologies is a company specialized in cybersecurity and eco-friendly cloud solutions, ensuring the protection of its clients' data."
+msgstr "ITNET Technologies est une entreprise spécialisée dans les solutions de cybersécurité et de cloud écologique, afin d'assurer la protection des données de ses clients."
+
+#: src/data/projects.ts:123
+msgid "ITNET Technologies specializes in providing immersion cooling solutions for data centers. This technology significantly reduces energy consumption and improves server performance."
+msgstr "ITNET Technologies est spécialisée dans la fourniture de solutions de refroidissement par immersion pour les centres de données. Cette technologie permet de réduire considérablement la consommation d'énergie et d'améliorer les performances des serveurs."
+
+#: src/data/projects.ts:130
+msgid "ITNET Technologies, your all-in-one solution"
+msgstr "ITNET Technologies, votre solution tout-en-un"
+
+#: src/pages/about.tsx:143
+msgid "Key proficiencies"
+msgstr "Compétences clés"
+
+#: src/data/about.ts:26
+msgid "Languages"
+msgstr "Langages"
+
+#: src/data/projects.ts:72
+msgid "Lead Creative Developer"
+msgstr "Lead Creative Developer"
+
+#: src/pages/about.tsx:46
+#: src/pages/about.tsx:54
+msgid "Lee Makosso — Full-stack developer"
+msgstr "Lee Makosso — Développeur full-stack"
+
+#: src/pages/__root.tsx:28
+#: src/pages/__root.tsx:35
+msgid "LEEEIGHT. — Creative Developer Portfolio"
+msgstr "LEEEIGHT. — Portfolio de Développeur Créatif"
+
+#: src/components/FooterCta.tsx:25
+msgid "Let's talk"
+msgstr "Parlons-en"
+
+#: src/pages/contact.tsx:51
+msgid "Let's work"
+msgstr "Travaillons"
+
+#: src/components/ThemeToggle.tsx:46
+msgid "Light"
+msgstr "Clair"
+
+#: src/components/Loader.tsx:80
+msgid "Loading experience"
+msgstr "Chargement de l'expérience"
+
+#: src/pages/contact.tsx:100
+msgid "Local time"
+msgstr "Heure locale"
+
+#: src/pages/index.tsx:105
+msgid "Located in Dakar"
+msgstr "Situé à Dakar"
+
+#: src/pages/contact.tsx:92
+msgid "Location"
+msgstr "Localisation"
+
+#: src/data/projects.ts:242
+msgid "Manage products, services, orders and users."
+msgstr "Gestion des produits, des services, des commandes et des utilisateurs."
+
+#: src/pages/about.tsx:111
+msgid "Measured in years of practice"
+msgstr "Mesurée en années de pratique"
+
+#: src/data/projects.ts:222
+msgid "MGE - Mes Goûts Éthiques is a small online platform selling products (clothing, accessories, etc.) and services (pastry, dishes, etc.), with an emphasis on quality and simplicity."
+msgstr "MGE - Mes Goûts Éthiques est une petite plateforme de vente en ligne de produits (habits, accessoires, etc.) et services (pâtisserie, plats, etc.), avec un accent mis sur la qualité et la simplicité."
+
+#: src/data/projects.ts:193
+msgid "Mia Events & Co is an agency specializing in the organization and decoration of events such as weddings, birthdays, baptisms or private celebrations. It offers personalized support to create tailor-made events, with particular attention to scenography, aesthetics and details, turning each project into a unique and memorable moment faithful to the clients' wishes and story."
+msgstr "Mia Events & Co est une agence spécialisée dans l'organisation et la décoration d'événements tels que mariages, anniversaires, baptêmes ou célébrations privées. Elle met en avant un accompagnement personnalisé pour créer des événements sur-mesure, avec une attention particulière portée à la scénographie, à l'esthétique et aux détails, afin de transformer chaque projet en moment unique et mémorable, fidèle aux envies et à l'histoire des clients."
+
+#: src/data/about.ts:61
+msgid "Mobile Dev"
+msgstr "Dév Mobile"
+
+#: src/data/projects.ts:42
+msgid "Never lose access to your services, even away from your workstation"
+msgstr "Ne perdez jamais l'accès à vos services, même loin de votre poste de travail"
+
+#: src/components/FooterCta.tsx:15
+msgid "New business"
+msgstr "Nouveaux projets"
+
+#: src/pages/projects.$projectId.tsx:217
+msgid "Next case"
+msgstr "Cas suivant"
+
+#: src/pages/__root.tsx:39
+msgid "Next-generation web development with premium aesthetics and performance."
+msgstr "Découvrez le développement web de nouvelle génération avec une esthétique et des performances premium."
+
+#: src/data/projects.ts:131
+msgid "One partner for hosting, security and infrastructure — from your first server to a full data center."
+msgstr "Un partenaire unique pour l'hébergement, la sécurité et l'infrastructure — de votre premier serveur au centre de données complet."
+
+#: src/pages/__root.tsx:32
+msgid "Portfolio of Lee Makosso, a creative developer and UI/UX designer sculpting digital interfaces where aesthetics meet performance."
+msgstr "Portfolio de Lee Makosso, développeur créatif et designer UI/UX sculptant des interfaces numériques où l'esthétique rencontre la performance."
+
+#: src/components/NotFound.tsx:32
+msgid "Previous page"
+msgstr "Page précédente"
+
+#: src/pages/about.tsx:26
+msgid "Product definition"
+msgstr "Définition du produit"
+
+#: src/components/Header.tsx:69
+#: src/components/MenuOverlay.tsx:15
+#: src/pages/about.tsx:29
+#: src/pages/index.tsx:238
+msgid "Profile"
+msgstr "Profil"
+
+#: src/pages/contact.tsx:67
+msgid "Ready for the adventure?"
+msgstr "Prêt pour l'aventure ?"
+
+#: src/components/NotFound.tsx:24
+msgid "Return to the index"
+msgstr "Retour à l'index"
+
+#: src/pages/projects.$projectId.tsx:107
+msgid "Role"
+msgstr "Rôle"
+
+#: src/pages/projects.$projectId.tsx:131
+msgid "Role & responsibility"
+msgstr "Rôle & responsabilité"
+
+#: src/pages/index.tsx:214
+msgid "Selected works"
+msgstr "Projets sélectionnés"
+
+#: src/components/MenuOverlay.tsx:14
+msgid "Six selected cases"
+msgstr "Six cas sélectionnés"
+
+#: src/components/MenuOverlay.tsx:16
+msgid "Start a conversation"
+msgstr "Démarrer une conversation"
+
+#: src/data/projects.ts:180
+msgid "Start protecting your most sensitive assets in minutes."
+msgstr "Commencez à protéger vos actifs les plus sensibles en quelques minutes."
+
+#: src/components/MenuOverlay.tsx:57
+msgid "Table of contents"
+msgstr "Table des matières"
+
+#: src/pages/about.tsx:140
+msgid "Technical stack"
+msgstr "Stack technique"
+
+#: src/pages/projects.$projectId.tsx:198
+msgid "Technologies"
+msgstr "Technologies"
+
+#: src/data/projects.ts:241
+msgid "The administrative dashboard"
+msgstr "Le tableau de bord administratif"
+
+#: src/pages/about.tsx:33
+#: src/pages/index.tsx:244
+msgid "The art of sculpting the digital."
+msgstr "L'art de sculpter le digital."
+
+#: src/data/projects.ts:34
+msgid "The client dashboard (User/Admin)"
+msgstr "Le tableau de bord client (Utilisateur/Admin)"
+
+#: src/data/projects.ts:22
+#: src/data/projects.ts:77
+#: src/data/projects.ts:114
+#: src/data/projects.ts:166
+#: src/data/projects.ts:203
+#: src/data/projects.ts:232
+msgid "The Concept"
+msgstr "Le Concept"
+
+#: src/components/MenuOverlay.tsx:13
+msgid "The front page"
+msgstr "La page d'accueil"
+
+#: src/data/projects.ts:78
+#: src/data/projects.ts:88
+msgid "The idea was to create an interface that disappears in favor of the content."
+msgstr "L'idée était de créer une interface qui disparaît au profit du contenu."
+
+#: src/data/projects.ts:23
+msgid "The idea was to create modern, clean and responsive interfaces to showcase Wayhost.cloud's services."
+msgstr "L'idée était de créer des interfaces modernes, épurées et responsive afin de mettre en avant les services de Wayhost.cloud."
+
+#: src/data/projects.ts:167
+msgid "The idea was to offer a simple and intuitive platform to manage secrets, digital vaults and other sensitive data securely."
+msgstr "L'idée était de proposer une plateforme simple et intuitive pour gérer les secrets, les coffres-forts numériques et d'autres données sensibles en toute sécurité."
+
+#: src/components/MenuOverlay.tsx:15
+msgid "The person behind the ink"
+msgstr "La personne derrière l'encre"
+
+#: src/data/projects.ts:87
+msgid "The quiet minimalist revolution"
+msgstr "La discrète révolution minimaliste"
+
+#: src/data/projects.ts:35
+msgid "The traditional dashboard lets you manage your services, subscriptions and invoices."
+msgstr "Le tableau de bord traditionnel vous permet de gérer vos services, vos abonnements et vos factures."
+
+#: src/pages/contact.tsx:54
+msgid "together"
+msgstr "ensemble."
+
+#: src/data/about.ts:47
+msgid "Tools & CMS"
+msgstr "Outils & CMS"
+
+#: src/pages/index.tsx:200
+msgid "UI/UX design"
+msgstr "Design UI/UX"
+
+#: src/data/about.ts:65
+msgid "UI/UX Design"
+msgstr "Design UI/UX"
+
+#: src/pages/index.tsx:111
+msgid "UI/UX Designer"
+msgstr "UI/UX Designer"
+
+#: src/data/projects.ts:11
+#: src/data/projects.ts:66
+#: src/data/projects.ts:103
+#: src/data/projects.ts:155
+#: src/data/projects.ts:192
+#: src/data/projects.ts:221
+msgid "UX/UI Design"
+msgstr "UX/UI Design"
+
+#: src/pages/index.tsx:181
+msgid "View works"
+msgstr "Voir mes projets"
+
+#: src/pages/projects.$projectId.tsx:145
+msgid "Visit website"
+msgstr "Voir le site"
+
+#: src/data/projects.ts:65
+msgid "Web Design"
+msgstr "Web Design"
+
+#: src/data/about.ts:22
+msgid "Web Foundation"
+msgstr "Fondamentaux Web"
+
+#: src/data/projects.ts:220
+msgid "Website (E-commerce)"
+msgstr "Site web (E-commerce)"
+
+#: src/data/projects.ts:102
+#: src/data/projects.ts:191
+msgid "Website (Showcase)"
+msgstr "Site web (Vitrine)"
+
+#: src/data/projects.ts:154
+msgid "Website (Showcase/Dashboard)"
+msgstr "Site web (Vitrine/Tableau de bord)"
+
+#: src/data/projects.ts:10
+msgid "Website (Showcase/SaaS/Design)"
+msgstr "Site web (Vitrine/SaaS/Design)"
+
+#: src/data/projects.ts:179
+msgid "What are you waiting for to secure your data?"
+msgstr "Qu'attendez-vous pour sécuriser vos données ?"
+
+#: src/data/projects.ts:247
+msgid "Whether on desktop, tablet or mobile, enjoy a smooth and pleasant experience."
+msgstr "Que vous soyez sur ordinateur, tablette ou mobile, profitez d'une expérience fluide et agréable."
+
+#: src/pages/contact.tsx:80
+msgid "Working asynchronously allows for better focus and more precise results. Send me an email to start the discussion — open to collaboration opportunities everywhere in the world."
+msgstr "Travailler de manière asynchrone permet une meilleure concentration et des résultats plus précis. Contactez-moi par mail pour entamer la discussion — ouvert aux opportunités de collaboration partout dans le monde."
+
+#: src/components/Header.tsx:67
+#: src/components/MenuOverlay.tsx:14
+#: src/pages/projects.index.tsx:27
+msgid "Works"
+msgstr "Projets"
+
+#: src/pages/projects.$projectId.tsx:103
+msgid "Year"
+msgstr "Année"
+
+#: src/pages/about.tsx:59
+msgid "years"
+msgstr "ans"
+
+#: src/data/projects.ts:174
+msgid "Your dashboard for managing secrets and digital vaults"
+msgstr "Votre tableau de bord pour la gestion de vos secrets et coffres-forts numériques"
