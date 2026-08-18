@@ -49,6 +49,7 @@ jobs:
           source: ".output/*"
           target: "/var/www/leeeight-portfolio/.output-next"
           rm: true
+          strip_components: 1
           overwrite: true
           command_timeout: 10m
 
