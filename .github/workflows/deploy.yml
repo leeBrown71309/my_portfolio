@@ -21,30 +21,24 @@ jobs:
       - name: Build production output
         run: bun run build
 
-      - name: Inspect VPS capacity
+      - name: Stop stale VPS build processes
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 2m
+          command_timeout: 5m
           script: |
             set -e
 
-            echo "Disk usage"
-            df -h /var/www/leeeight-portfolio /tmp
+            for process in bun vite; do
+              pids="$(pgrep -x "$process" || true)"
+              for pid in $pids; do
+                kill "$pid" || true
+              done
+            done
 
-            echo "Memory usage"
-            free -h
-
-            echo "System load"
-            uptime
-
-            echo "Top processes"
-            ps -eo pid,ppid,stat,etime,%cpu,%mem,cmd --sort=-%cpu | head -20
-
-            echo "Build-related processes"
-            pgrep -af "bun|vite|node|pm2" || true
+            sleep 2
 
       - name: Upload production output
         uses: appleboy/scp-action@v1
