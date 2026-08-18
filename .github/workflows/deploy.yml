@@ -1,9 +1,9 @@
-name: Deploy Portfolio V2
+name: Deploy Portfolio to Production
 
 on:
   push:
     branches:
-      - dev_v2
+      - main
 
 jobs:
   deploy:
