@@ -12,13 +12,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to VPS
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build production output
+        run: bun run build
+
+      - name: Sync source on VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 20m
+          command_timeout: 5m
           script: |
             set -e
 
@@ -32,11 +41,34 @@ jobs:
               git checkout -B dev_v2 origin/dev_v2
             fi
 
-            export BUN_INSTALL="$HOME/.bun"
-            export PATH="$BUN_INSTALL/bin:$PATH"
+            rm -rf .output-next
+            mkdir -p .output-next
 
-            bun install
-            bun run build
+      - name: Upload production output
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ".output/*"
+          target: "/var/www/leeeight-portfolio/.output-next"
+          overwrite: true
+          command_timeout: 10m
+
+      - name: Activate production output
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command_timeout: 5m
+          script: |
+            set -e
+
+            cd /var/www/leeeight-portfolio
+
+            rm -rf .output
+            mv .output-next .output
 
             pm2 delete portfolio || true
             pm2 start .output/server/index.mjs --name "portfolio"
