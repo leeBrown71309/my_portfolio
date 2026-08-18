@@ -74,6 +74,37 @@
   --color-line-strong: rgb(242 241 236 / 0.42);
 }
 
+/* Theme-invariant vermillion island (profile teaser): a local token scope that
+   floods the section with the accent, sets the supporting type white and keeps
+   the headline in ink.
+   Because the accent never swaps with the theme, the type on top of it must not
+   either — hence fixed values rather than the theme tokens.
+   Measured contrast against #ff4d00: the ink headline reaches 5.55:1 and passes
+   AA. The white supporting text reaches 3.33:1, which clears AA for large text
+   but sits under the 4.5:1 required at 11px and 15px — a deliberate
+   art-direction call, kept at pure white rather than a tint so it is at least
+   the most legible white available. Switching `--color-ink-soft` and
+   `--color-muted` back to #141412 restores 5.55:1 throughout.
+   `--color-accent` is pinned to ink so anything reaching for the accent (hover
+   colours, focus rings, ::selection) stays visible instead of painting
+   vermillion on vermillion. */
+.vermillion-island {
+  --color-paper: #ff4d00;
+  --color-paper-deep: #e64500;
+  --color-ink: #141412;
+  --color-ink-soft: #ffffff;
+  --color-muted: #ffffff;
+  --color-line: rgb(255 255 255 / 0.34);
+  --color-line-strong: rgb(255 255 255 / 0.6);
+  --color-accent: #141412;
+
+  /* Re-declared here, not just remapped: `body` sets `color: var(--color-ink)`,
+     so anything without its own text utility inherits body's *computed* colour
+     and would otherwise stay bone in dark mode. This pins the inherited colour
+     too, which is what carries the white onto the link and its arrow. */
+  color: #ffffff;
+}
+
 /* ——— Base ——— */
 
 html {
@@ -215,6 +246,53 @@ body {
   transform: rotate(-4deg);
   background: color-mix(in srgb, var(--color-paper) 85%, transparent);
   white-space: nowrap;
+}
+
+/* Works plates: the photograph dissolves into paper along its bottom edge, and
+   the display type crosses that dissolve.
+   The stops are not arbitrary. The type is `difference`-blended, which mushes
+   when the backdrop sits halfway to the text colour, so the band the letterforms
+   cross (roughly the bottom 4—15% of a plate) is held at >=80% paper. That keeps
+   the knockout above 4.8:1 against any photograph, in either theme, while the
+   upper two thirds of the plate stay at full strength. */
+.plate-fade {
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-paper) 92%, transparent) 0%,
+    color-mix(in srgb, var(--color-paper) 80%, transparent) 15%,
+    color-mix(in srgb, var(--color-paper) 38%, transparent) 26%,
+    transparent 42%
+  );
+}
+
+/* Works plates: the project name crosses the plate's bottom edge, so it has to
+   blend with whatever sits under it.
+   Light mode overprints the vermillion the way ink meets paper, which keeps the
+   name orange on the page and lets the photograph modulate it where they
+   overlap. Dark mode knocks the bone through with `difference` instead, since
+   multiplying a light ink over dark paper would erase it.
+   Only from `md` up: below that the name sits under the plate on plain paper
+   and needs no blending at all.
+   Written here rather than as `md:mix-blend-multiply` + `md:dark:...` so the
+   theme override wins on specificity instead of on Tailwind's variant sort. */
+@media (min-width: 48rem) {
+  .plate-name {
+    mix-blend-mode: multiply;
+  }
+  .dark .plate-name {
+    mix-blend-mode: difference;
+  }
+}
+
+/* Outlined index numeral on the works plates. Kept in CSS rather than inline
+   utilities because -webkit-text-stroke-color has no Tailwind counterpart. */
+.plate-numeral {
+  -webkit-text-stroke: 1px var(--color-line-strong);
+  color: transparent;
+  transition: -webkit-text-stroke-color 0.5s var(--ease-out-expo);
+}
+.works-plate:hover .plate-numeral {
+  -webkit-text-stroke-color: var(--color-accent);
 }
 
 /* Reduced motion: collapse loops & smooth scrolling */

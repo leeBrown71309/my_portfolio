@@ -1,0 +1,42 @@
+name: Deploy Portfolio V2
+
+on:
+  push:
+    branches:
+      - dev_v2
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+
+            cd /var/www/leeeight-portfolio
+
+            if [ ! -d ".git" ]; then
+              git clone --branch dev_v2 --single-branch https://github.com/${{ github.repository }}.git .
+            else
+              git remote set-url origin https://github.com/${{ github.repository }}.git
+              git fetch origin dev_v2
+              git checkout -B dev_v2 origin/dev_v2
+            fi
+
+            export BUN_INSTALL="$HOME/.bun"
+            export PATH="$BUN_INSTALL/bin:$PATH"
+
+            bun install
+            bun run build
+
+            pm2 delete portfolio || true
+            pm2 start .output/server/index.mjs --name "portfolio"
+            pm2 save
