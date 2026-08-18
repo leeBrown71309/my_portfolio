@@ -21,29 +21,6 @@ jobs:
       - name: Build production output
         run: bun run build
 
-      - name: Sync source on VPS
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 5m
-          script: |
-            set -e
-
-            cd /var/www/leeeight-portfolio
-
-            if [ ! -d ".git" ]; then
-              git clone --branch dev_v2 --single-branch https://github.com/${{ github.repository }}.git .
-            else
-              git remote set-url origin https://github.com/${{ github.repository }}.git
-              git fetch origin dev_v2
-              git checkout -B dev_v2 origin/dev_v2
-            fi
-
-            rm -rf .output-next
-            mkdir -p .output-next
-
       - name: Upload production output
         uses: appleboy/scp-action@v1
         with:
@@ -52,6 +29,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: ".output/*"
           target: "/var/www/leeeight-portfolio/.output-next"
+          rm: true
           overwrite: true
           command_timeout: 10m
 
